@@ -40,6 +40,7 @@ Uses a cookie to remember the last visited folder (until the browser is closed)
 From this page you can View, Add/Edit items. If an item is already in the Files list then it is shown in green together with the published status and Title
 
 Hint: you can copy the path of a file by clicking on the filename. Use this if you have uploaded a new document to replace an old version. Copy the filepath of the new version, click Edit next to the old version and paste the new path into the filepath edit box
+![Find Files Screen](/pictures/find_files.jpg "Find Files screen")
 
 ## Help
 
