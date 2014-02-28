@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="editors-xtd">
+	<name>Button - Filelink</name>
+	<author>Helen</author>
+	<creationDate>2014</creationDate>
+	<copyright>Copyright (C) 2014 Helen. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>heleneross@gmail.com</authorEmail>
+	<authorUrl>bfgnet.de</authorUrl>
+	<version>2.5.0</version>
+	<description>PLG_FILELINK_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="filelink">filelink.php</filename>
+		<filename>index.html</filename>
+    <filename>j_button2_filelinks.png</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_editors-xtd_filelink.ini</language>
+		<language tag="en-GB">en-GB.plg_editors-xtd_filelink.sys.ini</language>
+	</languages>
+</extension>
