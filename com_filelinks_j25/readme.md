@@ -11,6 +11,7 @@ There are three essential steps before you start using this component:
 ## Files
 
 Shows you a list of all the files you have added in this component, if the filepath is shown in red the resource can not be found, if it shown in orange then it has a file extension not set in options.
+![Files Screen](/pictures/files.jpg "Files screen")
 
 You can view the files, publish and unpublish them or edit the details
 
