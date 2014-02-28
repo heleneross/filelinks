@@ -10,7 +10,7 @@ There are three essential steps before you start using this component:
 
 ## Files
 
-Shows you a list of all the files you have added in this component, if the filepath is shown in red the resource can not be found
+Shows you a list of all the files you have added in this component, if the filepath is shown in red the resource can not be found, if it shown in orange then it has a file extension not set in options.
 
 You can view the files, publish and unpublish them or edit the details
 
@@ -23,16 +23,17 @@ Click on the title of the file to be taken to the edit screen
 3.  Catid - the category for this item
 4.  Description - the text to be searched by the search plugin, a summary of the file contents
 5.  Published - whether this item is currently published
+6.  Access - who has access to the link
 
-Warning: If you change the options to a different root document folder and or filetypes you may not be able to edit current items as the url is validated against the current options
+Warning: If you change the options to a different root document folder and or filetypes you may not be able to edit/save current items as the url is validated against the current options
 
 ## Categories (Files)
 
-Group filelink items by category - useful used in conjunction with the filelink plugin to output a list of files in a specific category, also shows this category when you use the search plugin 
+Group filelink items by category - useful used in conjunction with the filelink plugin to output a list of files in a specific category, also shows this category when you use the search plugin. 
 
 ## Find Files
 
-Choose a subdirectory from the dropdown, click submit and a list of files in and below that subdirectory will be shown
+Choose a subdirectory from the dropdown, click submit and a list of files in and below that subdirectory will be shown, filtered by file extension
 
 Uses a cookie to remember the last visited folder (until the browser is closed)
 
@@ -48,6 +49,7 @@ this document
 
 * File uploads - not sure I will add this
 * Attach image to item
+* Show files with wrong path in orange
 
 ## Optional extras
 
