@@ -54,7 +54,7 @@ Attach image to item
 
 ## Optional extras
 
-*   **plg\_content\_filelink.zip** - plugin to add filelinks files to content, using {filelink|4|my document title} syntax for a single file, {filelinkcat|227|my category} syntax for all the files in a category PS. wrap in a div to avoid html errors, only checks item authorisation not category
+*   **plg\_content\_filelink.zip** - plugin to add filelinks files to content, using {filelink|4|my document title} syntax for a single file, {filelinkcat|227|my category} syntax for all the files in a category 
 *   **plg\_editors-xtd\_filelink.zip** - adds a button to the editor to allow you to insert markup for inserting a filelinks file or filelinks category list of files using a modal dialog to display the files and categories
 *   **plg\_search\_filelinks.zip** - lets you search the description text of your filelinks files
 *   **plg\_finder\_filelinks.zip** - as above for finder. NB. not fully tested
