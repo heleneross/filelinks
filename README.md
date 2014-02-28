@@ -1,4 +1,4 @@
 filelinks
 =========
 
-joomla file lists and search
+joomla filelists and search
