@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="finder" method="upgrade">
+	<name>Smart Search - Filelinks</name>
+	<author>Helen</author>
+	<creationDate>February 2014</creationDate>
+	<copyright>(C) 2014 Helen. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see	LICENSE.txt</license>
+	<authorEmail>heleneross@gmail.com</authorEmail>
+	<authorUrl>bfgnet.de</authorUrl>
+	<version>1.5.0</version>
+	<description>PLG_FINDER_FILELINKS_XML_DESCRIPTION</description>
+	<files>
+		<file plugin="filelinks">filelinks.php</file>
+    	<filename>index.html</filename>
+	</files>
+  <folder>com_finder</folder>
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_finder_filelinks.ini</language>
+		<language tag="en-GB">language/en-GB.plg_finder_filelinks.sys.ini</language>
+	</languages>
+</extension>
