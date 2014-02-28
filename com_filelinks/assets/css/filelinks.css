@@ -1,0 +1,149 @@
+.icon-48-files {
+      background-image: url(../images/l_files.png);
+      padding-left:60px!important;
+}
+
+.icon-48-editfiledetails {
+      background-image: url(../images/l_files.png);
+      padding-left:60px!important;
+}
+
+.icon-48-findfiles {
+      background-image: url(../images/l_findfiles.png);
+      padding-left:60px!important;
+}
+
+.notfound {color:red;}
+.wrongext {color: #ff9d66;}
+
+.copylink {
+   border-radius:5px;
+   padding:0px 2px 0px 2px;
+   color: #666;
+   font-weight: none;
+   text-decoration: none;
+   opacity:.7;
+cursor:pointer;
+  }
+  
+.copylink:hover {
+   opacity:1;
+   color: #FFF;
+   background-color: #407EC9; /*#407EC9*/
+   text-decoration: underline;
+   -o-transition: background .5s linear;
+   -moz-transition: background .5s linear;
+   -webkit-transition: background .5s linear;
+
+  }
+
+th.thview{width:5%}
+th.thaction{width:5%}
+th.thstate{width:1%}
+th.thfile{width:43%}
+th.thtitle{width:43%}
+
+span.pub1 {color:#31B526}
+span.pub0 {color: #c6bccc}
+span.pub-2 {color: red}
+
+.findfiles i {background-repeat: no-repeat;padding:2px 8px}
+
+i.state-2 {background-image: url(../images/icon-16-trash.png);}
+i.state0 {background-image: url(../images/publish_x.png);}
+i.state1 {background-image: url(../images/tick.png);}
+
+a.add{background-color: rgba(90, 163, 204, 0.50);padding:2px 8px;}
+a.edit{background-color: rgba(49, 181, 38, 0.32);padding:2px 8px;}
+a.view{background-color: #f0f0f0;padding:2px 8px;}
+
+i.7z {background-image:url(../../../../../media/com_filelinks/images/7z.png);}
+i.ai {background-image:url(../../../../../media/com_filelinks/images/ai.png);}
+i.aiff {background-image:url(../../../../../media/com_filelinks/images/aiff.png);}
+i.asc {background-image:url(../../../../../media/com_filelinks/images/asc.png);}
+i.audio {background-image:url(../../../../../media/com_filelinks/images/audio.png);}
+i.bin {background-image:url(../../../../../media/com_filelinks/images/bin.png);}
+i.bz2 {background-image:url(../../../../../media/com_filelinks/images/bz2.png);}
+i.c {background-image:url(../../../../../media/com_filelinks/images/c.png);}
+i.cfc {background-image:url(../../../../../media/com_filelinks/images/cfc.png);}
+i.cfm {background-image:url(../../../../../media/com_filelinks/images/cfm.png);}
+i.chm {background-image:url(../../../../../media/com_filelinks/images/chm.png);}
+i.class {background-image:url(../../../../../media/com_filelinks/images/class.png);}
+i.conf {background-image:url(../../../../../media/com_filelinks/images/conf.png);}
+i.cpp {background-image:url(../../../../../media/com_filelinks/images/cpp.png);}
+i.cs {background-image:url(../../../../../media/com_filelinks/images/cs.png);}
+i.css {background-image:url(../../../../../media/com_filelinks/images/css.png);}
+i.csv {background-image:url(../../../../../media/com_filelinks/images/csv.png);}
+i.deb {background-image:url(../../../../../media/com_filelinks/images/deb.png);}
+i.divx {background-image:url(../../../../../media/com_filelinks/images/divx.png);}
+i.doc {background-image:url(../../../../../media/com_filelinks/images/doc.png);}
+i.dot {background-image:url(../../../../../media/com_filelinks/images/dot.png);}
+i.eml {background-image:url(../../../../../media/com_filelinks/images/eml.png);}
+i.enc {background-image:url(../../../../../media/com_filelinks/images/enc.png);}
+i.file {background-image:url(../../../../../media/com_filelinks/images/file.png);}
+i.gif {background-image:url(../../../../../media/com_filelinks/images/gif.png);}
+i.gz {background-image:url(../../../../../media/com_filelinks/images/gz.png);}
+i.hlp {background-image:url(../../../../../media/com_filelinks/images/hlp.png);}
+i.htm {background-image:url(../../../../../media/com_filelinks/images/htm.png);}
+i.html {background-image:url(../../../../../media/com_filelinks/images/html.png);}
+i.image {background-image:url(../../../../../media/com_filelinks/images/image.png);}
+i.iso {background-image:url(../../../../../media/com_filelinks/images/iso.png);}
+i.jar {background-image:url(../../../../../media/com_filelinks/images/jar.png);}
+i.java {background-image:url(../../../../../media/com_filelinks/images/java.png);}
+i.jpeg {background-image:url(../../../../../media/com_filelinks/images/jpeg.png);}
+i.jpg {background-image:url(../../../../../media/com_filelinks/images/jpg.png);}
+i.js {background-image:url(../../../../../media/com_filelinks/images/js.png);}
+i.lua {background-image:url(../../../../../media/com_filelinks/images/lua.png);}
+i.m {background-image:url(../../../../../media/com_filelinks/images/m.png);}
+i.mm {background-image:url(../../../../../media/com_filelinks/images/mm.png);}
+i.mov {background-image:url(../../../../../media/com_filelinks/images/mov.png);}
+i.mp3 {background-image:url(../../../../../media/com_filelinks/images/mp3.png);}
+i.mpg {background-image:url(../../../../../media/com_filelinks/images/mpg.png);}
+i.odc {background-image:url(../../../../../media/com_filelinks/images/odc.png);}
+i.odf {background-image:url(../../../../../media/com_filelinks/images/odf.png);}
+i.odg {background-image:url(../../../../../media/com_filelinks/images/odg.png);}
+i.odi {background-image:url(../../../../../media/com_filelinks/images/odi.png);}
+i.odp {background-image:url(../../../../../media/com_filelinks/images/odp.png);}
+i.ods {background-image:url(../../../../../media/com_filelinks/images/ods.png);}
+i.odt {background-image:url(../../../../../media/com_filelinks/images/odt.png);}
+i.ogg {background-image:url(../../../../../media/com_filelinks/images/ogg.png);}
+i.pdf {background-image:url(../../../../../media/com_filelinks/images/pdf.png);}
+i.pgp {background-image:url(../../../../../media/com_filelinks/images/pgp.png);}
+i.php {background-image:url(../../../../../media/com_filelinks/images/php.png);}
+i.pl {background-image:url(../../../../../media/com_filelinks/images/pl.png);}
+i.png {background-image:url(../../../../../media/com_filelinks/images/png.png);}
+i.ppt {background-image:url(../../../../../media/com_filelinks/images/ppt.png);}
+i.ps {background-image:url(../../../../../media/com_filelinks/images/ps.png);}
+i.py {background-image:url(../../../../../media/com_filelinks/images/py.png);}
+i.ram {background-image:url(../../../../../media/com_filelinks/images/ram.png);}
+i.rar {background-image:url(../../../../../media/com_filelinks/images/rar.png);}
+i.rb {background-image:url(../../../../../media/com_filelinks/images/rb.png);}
+i.rm {background-image:url(../../../../../media/com_filelinks/images/rm.png);}
+i.rpm {background-image:url(../../../../../media/com_filelinks/images/rpm.png);}
+i.rtf {background-image:url(../../../../../media/com_filelinks/images/rtf.png);}
+i.sig {background-image:url(../../../../../media/com_filelinks/images/sig.png);}
+i.sql {background-image:url(../../../../../media/com_filelinks/images/sql.png);}
+i.swf {background-image:url(../../../../../media/com_filelinks/images/swf.png);}
+i.sxc {background-image:url(../../../../../media/com_filelinks/images/sxc.png);}
+i.sxd {background-image:url(../../../../../media/com_filelinks/images/sxd.png);}
+i.sxi {background-image:url(../../../../../media/com_filelinks/images/sxi.png);}
+i.sxw {background-image:url(../../../../../media/com_filelinks/images/sxw.png);}
+i.tar {background-image:url(../../../../../media/com_filelinks/images/tar.png);}
+i.tex {background-image:url(../../../../../media/com_filelinks/images/tex.png);}
+i.tgz {background-image:url(../../../../../media/com_filelinks/images/tgz.png);}
+i.txt {background-image:url(../../../../../media/com_filelinks/images/txt.png);}
+i.vcf {background-image:url(../../../../../media/com_filelinks/images/vcf.png);}
+i.video {background-image:url(../../../../../media/com_filelinks/images/video.png);}
+i.vsd {background-image:url(../../../../../media/com_filelinks/images/vsd.png);}
+i.wav {background-image:url(../../../../../media/com_filelinks/images/wav.png);}
+i.wma {background-image:url(../../../../../media/com_filelinks/images/wma.png);}
+i.wmv {background-image:url(../../../../../media/com_filelinks/images/wmv.png);}
+i.xls {background-image:url(../../../../../media/com_filelinks/images/xls.png);}
+i.xml {background-image:url(../../../../../media/com_filelinks/images/xml.png);}
+i.xpi {background-image:url(../../../../../media/com_filelinks/images/xpi.png);}
+i.xvid {background-image:url(../../../../../media/com_filelinks/images/xvid.png);}
+i.zip {background-image:url(../../../../../media/com_filelinks/images/zip.png);}
+
+
+
+

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="catid" type="category"
+                
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_CATID"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_CATID" 
+                
+                
+                
+            extension="com_filelinks.files"
+            menu_published="0"
+            filter="raw" /> 
+
+ 
+		<field name="filter_catid" type="category"
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_CATID"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_CATID"  extension="com_filelinks.files" show_root="1" onchange="this.form.submit();" /> 
+
+       <field name="title" type="text"
+                
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_TITLE"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_TITLE" 
+            size="50"    
+                
+                 required="true" 
+            filter="safehtml"
+            maxlength="250" /> 
+
+
+       <field name="url" type="text"
+                
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_URL"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_URL" 
+            size="90"
+                
+                 required="true" 
+            menu_published="0"
+            filter="text" /> 
+
+       <field name="description" type="textarea"
+                
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_DESCRIPTION"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_DESCRIPTION" 
+            cols="100"
+            rows="8"
+            filter="string" />
+
+       <field name="hits" type="hidden"
+                
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_HITS"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_HITS" 
+                 default="0" 
+                
+                
+            filter="int"
+            maxlength="11" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_CREATED_BY"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_CREATED_BY"  /> 
+
+       <field name="created" type="timecreated" default="" 
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_CREATED"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_CREATED"  /> 
+
+       <field name="access" type="accesslevel"
+                
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_ACCESS"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_ACCESS" 
+                
+                
+                 /> 
+
+       <field name="language" type="language"
+                
+            label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_LANGUAGE"
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_LANGUAGE" 
+                
+                
+                
+            filter="word"
+            client="site" /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>
