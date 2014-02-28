@@ -7,3 +7,5 @@ For a category list the button inserts the markup within a div with a class of f
 If you position your cursor within a heading for instance and then add a category list the editor can get confused, so best practice is to position your cursor on a blank line.
 
 see content plugin for a full list of options for the markup syntax
+
+![editors-xtd button](/pictures/single.jpg "editors-xtd button")
