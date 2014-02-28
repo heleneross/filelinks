@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="content" method="upgrade">
+    <name>Content - Filelinks</name>
+    <author>Helen Ross</author>
+    <creationDate>2014</creationDate>
+    <copyright>Copyright (c) 2014 by Helen. All rights reserved.</copyright>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>heleneross@gmail.com</authorEmail>
+    <authorUrl>bfgnet.de</authorUrl>
+    <version>0.5</version>
+    <description><![CDATA[<p>Inserts filelinks into content via markup</p><p><a href="#" id="pluginhelp" onclick="Joomla.popupWindow('../plugins/content/filelinks/help.html','plugin help',700,500,1)">Plugin Help</a></p><p>Don&#39;t forget to publish the plugin</p>]]>
+    </description>
+
+    <files>
+        <filename plugin="filelinks">filelinks.php</filename>
+        <filename>index.html</filename>
+        <filename>filelinks.css</filename>
+        <filename>help.html</filename>
+        <folder>tmpl</folder>
+        <folder>language</folder>
+    </files>
+
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="icon"
+                       type="radio"
+                       default="1"
+                       description="add icons to link"
+                       label="Icons">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="blank"
+                       type="radio"
+                       default="1"
+                       description="open document in new window"
+                       label="New window">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="description"
+                       type="radio"
+                       default="0"
+                       description="Add description after link"
+                       label="Add description">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+            <fieldset name="cssstyles" label="CSS Styles">
+                <field name="usecss"
+                       type="radio"
+                       default="1"
+                       description="Use css stylesheet for presentation - choose no if you want to add styles to your main stylesheet"
+                       label="Use CSS">
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field name="stylepath"
+                       type="text"
+                       default="plugins/content/filelinks/filelinks.css"
+                       description="Path to stylesheet - copy the original to another folder eg. template/css if you want to make modifications"
+                       label="CSS path"
+                        size="60">
+                </field>
+            </fieldset>
+            <fieldset name="catlists" label="Catlist option">
+                <field name="liststyle"
+                       type="radio"
+                       default="1"
+                       description="set list style for category lists"
+                       label="List style">
+                    <option value="1">ul</option>
+                    <option value="0">ol</option>
+                </field>
+                <field name="ordering" type="list" default="title_az" label="Ordering" description="list ordering">
+                    <option value="created_dsc">Created descending</option>
+                    <option value="created_asc">Created ascending</option>
+                    <option value="title_az">Title A-Z</option>
+                    <option value="title_za">Title Z-A</option>
+                    <option value="ordering_fwd">Ordering forward</option>
+                    <option value="ordering_rev">Ordering reverse</option>
+                    <option value="id_asc">Id ascending</option>
+                    <option value="id_dsc">Id descending</option>
+                </field>
+                <field name="cataccess"
+                       type="radio"
+                       default="1"
+                       description="should viewlevel for category filelists depend on the category access level or by individual item"
+                       label="Viewing rules">
+                    <option value="1">category</option>
+                    <option value="0">item</option>
+                </field>
+                <field name="usetemplate"
+                       type="radio"
+                       default="0"
+                       description="uses the template in the tmpl folder or in yourtemplate/html/plg_content_filelinks/default.php if you want to override the default output"
+                       label="Use template">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="addtitle"
+                       type="radio"
+                       default="1"
+                       description="Add the category title before the category list"
+                       label="Add heading title">
+                    <option value="1">yes</option>
+                    <option value="0">no</option>
+                </field>
+                <field name="htitle" type="list" default="2" label="Heading size" description="heading size">
+                    <option value="1">h1</option>
+                    <option value="2">h2</option>
+                    <option value="3">h3</option>
+                    <option value="4">h4</option>
+                    <option value="5">h5</option>
+                </field>
+            </fieldset>
+
+        </fields>
+    </config>
+
+</extension>

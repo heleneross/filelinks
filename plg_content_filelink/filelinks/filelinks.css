@@ -1,0 +1,24 @@
+/* single item */
+a.filelink {display:block;}
+a.filelink > img {padding-right:5px;}
+span.filelink-description {display:block;margin-bottom:10px;}
+
+/* title */
+.filelinkcat-title {}
+/* div container */
+.filelinkcat {padding:0;margin:0;}
+/* list items */
+.filelinkcat-list {}
+.filelinkcat-li {}
+.filelinkcat-li > a > img {padding-right:5px;}
+.filelinkcat-li > a {display:block;margin-top:2px}
+.filelinkcat-description {display:block;margin-bottom:2px;}
+/* dl items no description */
+.filelinkcat-dl-nd {}
+.filelinkcat-dt-nd {padding: 2px 0;}
+.filelinkcat-dt-nd a > img {padding-right:5px;}
+/* dl items with description */
+.filelinkcat-dl {}
+.filelinkcat-dt {background-color: #eee; padding:5px;margin-top:3px}
+.filelinkcat-dt > a > img {padding-right:5px;}
+.filelinkcat-dd {margin-bottom: 5px;padding:5px;border: 1px dotted #eee;}
