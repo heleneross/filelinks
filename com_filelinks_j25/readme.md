@@ -46,11 +46,8 @@ this document
 
 ## TODO
 
-Add access rules for viewing with filelink plugin output
-
-File uploads
-
-Attach image to item
+* File uploads - not sure I will add this
+* Attach image to item
 
 ## Optional extras
 
