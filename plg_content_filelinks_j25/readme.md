@@ -30,11 +30,12 @@ Add the description of the item after the link
 
 The default path for the css is <span class="typewriterb">plugins/content/filelinks/filelinks.css</span> but you can change this to point to your customised version so it doesn't get overwritten on plugin update.
 
-## Catlist option
+## Catlist options
 
 ### List style
 
 choices are **ul** - unordered list with bullets or **ol** - ordered list with numbers
+![unordered list](/com_filelinks_j25/media/help/ul.jpg "unordered list")
 
 ### Ordering
 
@@ -47,7 +48,9 @@ The order in which the links are output
 
 ### Use template
 
-If you choose this option then instead of using the inbuilt list style for output the markup is with a dl (definition list)  
+If you choose this option then instead of using the inbuilt list style for output the markup is with a dl (definition list)
+![dl list](/com_filelinks_j25/media/help/dl.jpg "dl list")
+
 The file used is in <span class="typewriterb">plugins/content/filelinks/tmpl/default.php</span>  
 Copy this file to <span class="typewriterb">yourtemplate/html/plg_content_filelinks/default.php</span> and then you can edit the file to give the output you require  
 You have *id, url, title, description* in the result set and will have to iterate over the $rows object to get the individual items  
@@ -81,6 +84,7 @@ Strictly speaking the this option is not required so markup such as
 
 #### Single Filelink options
 
+
 All extra options should have a pipe between them - please do not leave out the article title if you add extra options. Options can be in any order. The available options at present are:
 
 *   **raw** - outputs just the url, nothing else. All other options are ignored. You can use this if you want to wrap the url in your own html eg. 
@@ -90,6 +94,8 @@ All extra options should have a pipe between them - please do not leave out the 
 *   **noicon** - suppresses the icon for this one item
 *   **desc** - adds the item description after the link
 *   **nodesc** - suppresses the item description
+
+![single article](/com_filelinks_j25/media/help/single.jpg "single article")
 
 **Valid examples:**
 
