@@ -1,6 +1,6 @@
-# Filelinks plugin
+# Filelinks Content plugin
 
-Please make sure you have the **Filelinks Compontent** installed first
+Please make sure you have the **Filelinks Component** installed first
 
 ## Basic Options
 
