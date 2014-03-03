@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>Filelinks help</title>
+  </head>
+  <body>
+  <h1>Generate the filelinks helpfiles from markdown</h1>
+  <p>Get the markdown library package from <a href="http://michelf.ca/projects/php-markdown/">michelf.ca/projects/php-markdown</a></p>
+  <p>Create a folder on localhost and extract the package there - then copy this file to that directory and open this file with your browser. In my case this file is in <a href="http://localhost/michelf/form.html">localhost/michelf/form.html</a></p> 
+  <p>Browse to the markdown files in the GitHub folder - you need to generate the following and save the source to<br>
+  GitHub\filelinks\com_filelinks_j25\views\help\tmpl. Add css should be <strong>no</strong><br>The help page of the component will pull all of these in for display.</p>
+  <ol>
+  <li>GitHub\filelinks\com_filelinks_j25\readme.md - save as component.php</li>
+  <li>GitHub\filelinks\plg_content_filelinks_j25\readme.md - save as content.php (this includes the help for plg_editors-xtd_filelink_j25)</li>
+  <li>GitHub\filelinks\plg_search_filelinks_j25\readme.md - save as search.php</li>
+  <li>GitHub\filelinks\plg_finder_filelinks_j25\readme.md - save as finder.php</li>
+  </ol>
+  <p>Also generate a help file for the content plugin:<br>
+  GitHub\filelinks\plg_content_filelinks_j25\readme.md - save as GitHub\filelinks\plg_content_filelinks_j25\help.html - this time Add css should be <strong>yes</strong></p>
+
+  
+  
+<form action="md2.php" enctype="multipart/form-data" id="markdown" method="post" name="markdown">
+	<p><input name="md" type="file" /></p>
+  <p>Add css:<select name="css"><option value="yes">yes</option><option value="no">no</option></select></p>
+  <p><input name="submit" type="submit" value="submit" /></p></form>
+  </body></html>
