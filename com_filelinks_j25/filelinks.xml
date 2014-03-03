@@ -52,6 +52,7 @@
     </administration>
     <media folder="media" destination="com_filelinks">
         <folder>images</folder>
+        <folder>help</folder>
     </media>
 </extension>
 <!-- Component built by the Joomla Component Creator -->
