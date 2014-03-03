@@ -52,7 +52,7 @@ The file used is in <span class="typewriterb">plugins/content/filelinks/tmpl/def
 Copy this file to <span class="typewriterb">yourtemplate/html/plg_content_filelinks/default.php</span> and then you can edit the file to give the output you require  
 You have *id, url, title, description* in the result set and will have to iterate over the $rows object to get the individual items  
 at the end of the foreach loop you should echo the html you want to show. See <span class="typewriter">filelinks.php</span> from lines 51 for the variables you have available
-
+<hr>
 # Filelinks Editors-xtd Button
 
 This allows you to easily insert the markup required by the Filelinks content plugin into any article. The button has no plugin options - it simply calls the modal view of the Filelinks Items.   
