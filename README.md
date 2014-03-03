@@ -10,8 +10,8 @@ joomla filelists and search
 *   **plg\_search\_filelinks.zip** - lets you search the description text of your filelinks files
 *   **plg\_finder\_filelinks.zip** - as above for finder. NB. not fully tested
 
-![Single articles with options](/pictures/single.jpg "Single articles")
+![Single articles with options](/com_filelinks_j25/media/help/single.jpg "Single articles")
 
-![List of articles in a category](/pictures/ul.jpg "List articles in a category")
+![List of articles in a category](/com_filelinks_j25/media/help/ul.jpg "List articles in a category")
 
-![Template dl list of articles in a category](/pictures/dl.jpg "Template dl list articles in a category")
+![Template dl list of articles in a category](/com_filelinks_j25/media/help/dl.jpg "Template dl list articles in a category")
