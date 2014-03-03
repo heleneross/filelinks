@@ -11,7 +11,7 @@ There are three essential steps before you start using this component:
 ## Files
 
 Shows you a list of all the files you have added in this component, if the filepath is shown in red the resource can not be found, if it shown in orange then it has a file extension not set in options.
-![Files Screen](/pictures/files.jpg "Files screen")
+![Files Screen](/com_filelinks_j25/media/help/files.jpg "Files screen")
 
 You can view the files, publish and unpublish them or edit the details
 
@@ -39,10 +39,10 @@ Choose a subdirectory from the dropdown, click submit and a list of files in and
 Uses a cookie to remember the last visited folder (until the browser is closed)
 
 From this page you can View, Add/Edit items. If an item is already in the Files list then it is shown in green together with the published status and Title
-![Find Files Screen](/pictures/find_files.jpg "Find Files screen")
+![Find Files Screen](/com_filelinks_j25/media/help/find_files.jpg "Find Files screen")
 
 Hint: you can copy the path of a file by clicking on the filename. Use this if you have uploaded a new document to replace an old version. Copy the filepath of the new version, click Edit next to the old version and paste the new path into the filepath edit box
-![Find Files copy](/pictures/find_files_copy.jpg "Find Files copy")
+![Find Files copy](/com_filelinks_j25/media/help/find_files_copy.jpg "Find Files copy")
 
 ## Help
 
