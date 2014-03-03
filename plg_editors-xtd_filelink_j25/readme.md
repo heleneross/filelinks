@@ -8,6 +8,6 @@ If you position your cursor within a heading for instance and then add a categor
 
 see content plugin for a full list of options for the markup syntax
 
-![editors-xtd button](/pictures/button.jpg "editors-xtd button")
+![editors-xtd button](/com_filelinks_j25/media/help/button.jpg "editors-xtd button")
 
-![modal article/category selection](/pictures/modal.jpg "modal article/category selection")
+![modal article/category selection](/com_filelinks_j25/media/help/modal.jpg "modal article/category selection")
