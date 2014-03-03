@@ -84,12 +84,11 @@ Strictly speaking the this option is not required so markup such as
 
 #### Single Filelink options
 
-
-All extra options should have a pipe between them - please do not leave out the article title if you add extra options. Options can be in any order. The available options at present are:
+All extra options should have a pipe between them - please do not leave out the article title if you add extra options.
+Options can be in any order. The available options at present are:
 
 *   **raw** - outputs just the url, nothing else. All other options are ignored. You can use this if you want to wrap the url in your own html eg. 
     <pre>&lt;a href="{filelink|2|my link}" class="button"&gt;link text&lt;/a&gt;</pre>
-
 *   **icon** - adds the icon before the link for this one item
 *   **noicon** - suppresses the icon for this one item
 *   **desc** - adds the item description after the link
