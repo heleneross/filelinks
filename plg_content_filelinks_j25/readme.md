@@ -61,9 +61,9 @@ Alternatively, click on any Category in the list and category list markup will b
 
 For a category list the button inserts the markup within a div with a class of filelistcat - this is necessary for the output to validate. Tested on a number of popular content editors but it is not foolproof.  
 If you position your cursor within a heading for instance and then add a category list the editor can get confused, so best practice is to position your cursor on a blank line.
-![editors-xtd button](/pictures/button.jpg "editors-xtd button")
+![editors-xtd button](/com_filelinks_j25/media/help/button.jpg "editors-xtd button")
 
-![modal article/category selection](/pictures/modal.jpg "modal article/category selection")
+![modal article/category selection](/com_filelinks_j25/media/help/modal.jpg "modal article/category selection")
 
 ## Markup
 
