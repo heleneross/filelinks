@@ -4,8 +4,8 @@ Get the markdown library package from [michelf.ca/projects/php-markdown][1]
 
 Create a folder on localhost and extract the package there - then copy form.html file to that directory and open the file with your browser. In my case this file is in [localhost/michelf/form.html][2]
 
-Use the form to browse to the markdown files in the GitHub folder - you need to generate the following and save the source to  
-GitHub\filelinks\com\_filelinks\_j25\views\help\tmpl. Add css should be **no**  
+Use the form to browse to the markdown files in the local GitHub folder - you need to generate the following and save the source to  
+GitHub\filelinks\com\_filelinks\_j25\views\help\tmpl Add css should be **no**  
 The help page of the component will pull all of these in for display.
 
 1.  GitHub\filelinks\com\_filelinks\_j25\readme.md - save as component.php
