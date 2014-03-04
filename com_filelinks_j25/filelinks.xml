@@ -9,7 +9,7 @@
     <authorUrl>http://bfgnet.de</authorUrl>
     <version>1.0.4</version>
     <description>file link creator and manager</description>
-    
+    <scriptfile>script.php</scriptfile>
     <install> <!-- Runs on install -->
         <sql>
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
