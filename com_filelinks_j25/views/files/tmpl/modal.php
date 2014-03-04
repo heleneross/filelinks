@@ -46,7 +46,7 @@ $saveOrder	= $listOrder == 'a.ordering';
 			JForm::addFormPath(JPATH_COMPONENT . '/models/forms');
 			$form = JForm::getInstance('com_filelinks.editfiledetails', 'editfiledetails');
 			echo $form->getLabel('filter_catid');
-			echo $form->getInput('filter_catid', null, $selected_catid);
+		echo str_replace('<option value="0">Root</option>',	'<option value="">' . JText::_('JOPTION_SELECT_CATEGORY') . '</option>', $form->getInput('filter_catid', null, $selected_catid));
 			?>
 		</div>
 
