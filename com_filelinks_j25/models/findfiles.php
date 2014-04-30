@@ -74,6 +74,9 @@ class FilelinksModelFindfiles extends JModelList {
         // Compile the store id.
         $id.= ':' . $this->getState('filter.search');
         $id.= ':' . $this->getState('filter.state');
+        
+        // we want to return all the results
+        $this->setState('list.limit', 0);
 
         return parent::getStoreId($id);
     }
