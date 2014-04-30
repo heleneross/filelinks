@@ -36,50 +36,66 @@ class plgButtonFilelink extends JPlugin
 	 *
 	 * @return array A two element array of (article_id, article_title)
 	 */
-	function onDisplay($name)
+	function onDisplay($name, $asset, $author)
 	{
-		/*
-		 * Javascript to insert the link
-		 * View element calls jSelectFile when an article is clicked
-		 * jSelectFile creates the link tag, sends it to the editor,
-		 * and closes the select frame.
-		 */
-		$js = "
-		function jSelectFile(id, title) {
-			var tag = '{filelink|' + id + '|' + title + '}';
-			jInsertEditorText(tag, '".$name."');
-			SqueezeBox.close();
-		}";
+		$app = JFactory::getApplication();
+		$params = JComponentHelper::getParams('com_filelinks');
+		$user = JFactory::getUser();
+		$extension = JRequest::getCmd('option');
+		if ($asset == ''){
+			$asset = $extension;
+		}
+
+		if (	$user->authorise('core.edit', $asset)
+			||	$user->authorise('core.create', $asset)
+			||	(count($user->getAuthorisedCategories($asset, 'core.create')) > 0)
+			||	($user->authorise('core.edit.own', $asset) && $author == $user->id)
+			||	(count($user->getAuthorisedCategories($extension, 'core.edit')) > 0)
+			||	(count($user->getAuthorisedCategories($extension, 'core.edit.own')) > 0 && $author == $user->id)
+		)
+      {  /*
+    		 * Javascript to insert the link
+    		 * View element calls jSelectFile when an article is clicked
+    		 * jSelectFile creates the link tag, sends it to the editor,
+    		 * and closes the select frame.
+    		 */
+    		$js = "
+    		function jSelectFile(id, title) {
+    			var tag = '{filelink|' + id + '|' + title + '}';
+    			jInsertEditorText(tag, '".$name."');
+    			SqueezeBox.close();
+    		}";
+        
+        $jscat = "
+        function jSelectFilelinkCat(catno, catid) {
+    			var tag = '<div class=\"filelinkcat\">{filelinkcat|' + catno + '|' + catid + '}</div>';
+    			jInsertEditorText(tag, '".$name."');
+    			SqueezeBox.close();
+    		}";
+        
+        $css = '.button2-left .filelink {background: url('.JURI::root(true).'/plugins/editors-xtd/filelink/j_button2_filelinks.png) 100% 0 no-repeat}';
     
-    $jscat = "
-    function jSelectFilelinkCat(catno, catid) {
-			var tag = '<div class=\"filelinkcat\">{filelinkcat|' + catno + '|' + catid + '}</div>';
-			jInsertEditorText(tag, '".$name."');
-			SqueezeBox.close();
-		}";
+    		$doc = JFactory::getDocument();
+    		$doc->addScriptDeclaration($js);
+        $doc->addScriptDeclaration($jscat);
+        $doc->addStyleDeclaration($css);
     
-    $css = '.button2-left .filelink {background: url('.JURI::root(true).'/plugins/editors-xtd/filelink/j_button2_filelinks.png) 100% 0 no-repeat}';
-
-		$doc = JFactory::getDocument();
-		$doc->addScriptDeclaration($js);
-    $doc->addScriptDeclaration($jscat);
-    $doc->addStyleDeclaration($css);
-
-		JHtml::_('behavior.modal');
-
-		/*
-		 * Use the built-in element view to select the article.
-		 * Currently uses blank class.
-		 */
-		$link = 'index.php?option=com_filelinks&amp;view=files&amp;layout=modal&amp;tmpl=component&amp;'.JSession::getFormToken().'=1';
-
-		$button = new JObject();
-		$button->set('modal', true);
-		$button->set('link', $link);
-		$button->set('text', JText::_('PLG_ARTICLE_BUTTON_FILELINK'));
-		$button->set('name', 'filelink');
-		$button->set('options', "{handler: 'iframe', size: {x: 770, y: 400}}");
-
-		return $button;
+    		JHtml::_('behavior.modal');
+    
+    		/*
+    		 * Use the built-in element view to select the article.
+    		 * Currently uses blank class.
+    		 */
+    		$link = 'administrator/index.php?option=com_filelinks&amp;view=files&amp;layout=modal&amp;tmpl=component&amp;'.JSession::getFormToken().'=1';
+    
+    		$button = new JObject();
+    		$button->set('modal', true);
+    		$button->set('link', $link);
+    		$button->set('text', JText::_('PLG_ARTICLE_BUTTON_FILELINK'));
+    		$button->set('name', 'filelink');
+    		$button->set('options', "{handler: 'iframe', size: {x: 770, y: 400}}");
+    
+    		return $button;
+      }
 	}
 }
