@@ -130,7 +130,7 @@ else
 				echo '<td><a href="' . JRoute::_('index.php?option=com_filelinks&view=editfiledetails&layout=edit&task=add&title=' . base64_encode($file) . '&url=' . base64_encode($filestore . $folders . '/' . $file)) . '" class="add">[add]</a></td>';
 				echo '<td><i class="' . $filetype . '"></i></td>';
 				echo '<td><i class="stateu"></i></td>';
-				echo '<td><a class="copylink" href="#" onclick="window.prompt(' ."'Press CTRL+C, then ENTER'" .',this.innerText); return false;">' . $filestore . $folders . '/' . $file . '</a></td><td>&nbsp;</td>';
+				echo '<td><a class="copylink" href="#" onclick="window.prompt(' ."'Press CTRL+C, then ENTER'" .',(this.innerText || this.textContent)); return false;">' . $filestore . $folders . '/' . $file . '</a></td><td>&nbsp;</td>';
 			}
 			echo '</tr>';
 		}
