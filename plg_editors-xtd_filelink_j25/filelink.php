@@ -86,8 +86,15 @@ class plgButtonFilelink extends JPlugin
     		 * Use the built-in element view to select the article.
     		 * Currently uses blank class.
     		 */
-    		$link = 'administrator/index.php?option=com_filelinks&amp;view=files&amp;layout=modal&amp;tmpl=component&amp;'.JSession::getFormToken().'=1';
-    
+        if ($app->isAdmin())
+        {
+    		  $link = 'index.php?option=com_filelinks&amp;view=files&amp;layout=modal&amp;tmpl=component&amp;'.JSession::getFormToken().'=1';        
+        }
+        else
+        {
+    		  $link = 'administrator/index.php?option=com_filelinks&amp;view=files&amp;layout=modal&amp;tmpl=component&amp;'.JSession::getFormToken().'=1';
+        }
+        
     		$button = new JObject();
     		$button->set('modal', true);
     		$button->set('link', $link);
