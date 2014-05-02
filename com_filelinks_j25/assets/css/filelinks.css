@@ -48,6 +48,12 @@ span.pub0 {color: #c6bccc}
 span.pub-2 {color: red}
 
 .findfiles i {background-repeat: no-repeat;padding:2px 8px}
+#folderform {float:left;padding-left:5px}
+#fileupload {float:right;padding-right:5px;}
+input#chosen, input#overwrite {vertical-align:top;margin-right:10px;margin-left:0}
+#fileupload label{vertical-align:baseline}
+ #fileupload .button {padding:3px 8px}
+
 
 i.state-2 {background-image: url(../images/icon-16-trash.png);}
 i.state0 {background-image: url(../images/publish_x.png);}
