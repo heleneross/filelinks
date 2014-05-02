@@ -52,7 +52,6 @@ this document
 
 * File uploads - not sure I will add this
 * Attach image to item
-* Show files with wrong path in orange
 
 ## Optional extras
 

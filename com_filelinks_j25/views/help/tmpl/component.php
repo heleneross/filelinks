@@ -48,6 +48,7 @@
 
 <p>Hint: you can copy the path of a file by clicking on the filename. Use this if you have uploaded a new document to replace an old version. Copy the filepath of the new version, click Edit next to the old version and paste the new path into the filepath edit box
 </p><img src="<?php echo JURI::root();?>media/com_filelinks/help/find_files_copy.jpg" alt="Find Files copy" title="Find Files copy" />
+<p>You can now upload files (restricted to those types set in options) to the current folder. The filename will be cleaned - strange charcters removed and spaces replaced by hyphens. If the file exists you will be given a warning unless you have checked the overwrite box</p> 
 
 <h2>Help</h2>
 
@@ -56,7 +57,6 @@
 <h2>TODO</h2>
 
 <ul>
-<li>File uploads - not sure I will add this</li>
 <li>Attach image to item</li>
 <li>Show files with wrong path in orange</li>
 </ul>
