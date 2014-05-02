@@ -8,8 +8,12 @@
  */
 // no direct access
 defined('_JEXEC') or die;
-
-
+// root of documents folder
+$filestore = JComponentHelper::getParams('com_filelinks')->get('filestore');
+$filestore = trim($filestore, '.\\/ ');
+//allowed document types - from helper
+$doctypes = FilelinksHelper::getDoctypes();
+$jregex = '/' . $doctypes . '/';
 ?>
 	<script type="text/javascript">
 		Joomla.submitbutton = function (pressbutton) {
@@ -18,6 +22,21 @@ defined('_JEXEC') or die;
       document.cookie = 'filelinksfolder=' + foldercookie.options[foldercookie.selectedIndex].text;
 			form.submit();
 		}
+    Joomla.submitbutton_u = function (pressbutton) {
+      var form = document.getElementById('fileupload');
+      if (form.chosen.value == ""){alert("Please select a file");}
+      else 
+          {
+          var regex = <?php echo $jregex;?>;
+    					if (regex.test(form.chosen.value))
+              {
+        					form.submit();
+    					}
+    					else {
+    						alert('Not a valid filetype');
+    					}
+          }
+      }
 
 	</script>
 <?php
@@ -33,18 +52,11 @@ $cookie = $input->cookie->get('filelinksfolder','','cmd');
 $folders = ($cookie) ? $cookie : $input->getCmd('folders', '');
 
 
-// root of documents folder
-$filestore = JComponentHelper::getParams('com_filelinks')->get('filestore');
-$filestore = trim($filestore, '.\\/ ');
-
-//allowed document types - from helper
-$doctypes = FilelinksHelper::getDoctypes();
-
 $list = JFolder::folders(JPATH_ROOT . '/' . $filestore, '.', false, false);
 array_unshift($list,$filestore);
 echo '<div class="findfiles">';
 echo '<form enctype="multipart/form-data" action="' . JRoute::_('index.php?option=com_filelinks&view=findfiles') . '" method="post" name="folderform" id="folderform">';
-echo '<select name="folders">';
+echo '<label for="folders">Folder: </label><select name="folders" id="folders">';
 foreach ($list as $item)
 {
 	if ($item == $folders)
@@ -62,6 +74,15 @@ foreach ($list as $item)
 	<input type="hidden" name="task" value="folder"/>
 <?php echo JHtml::_('form.token'); ?>
 	</form>
+<form enctype="multipart/form-data" action="<?php echo JRoute::_('index.php?option=com_filelinks&view=findfiles') ?>" method="post" name="fileupload" id="fileupload">
+<label for="overwrite"> Overwrite:</label>
+<input type="checkbox" id="overwrite" name="overwrite" value="true">
+<label for="chosen">Upload file: </label>
+<input class="input_box" id="chosen" name="chosen" type="file" size="80">
+<input class="button" type="button" value="Submit" onclick="Joomla.submitbutton_u()"/>
+	<input type="hidden" name="task" value="uploadfile"/>
+  <input type="hidden" name="folder" value="<?php echo $folders ?>">
+</form>
 <?php
 $ds = DIRECTORY_SEPARATOR;
 $site = str_replace($ds, '/', JPATH_SITE);
@@ -75,7 +96,12 @@ if ($filestore == '')
 }
 else
 {
-	if (($task == 'folder' || $cookie) && $folders && $folders != $filestore )
+	if ($task == 'uploadfile')
+  {
+    $message = FilelinksHelper::upload ($filestore, $input->getCmd('folder',''), $input->files->get('chosen'), $input->getBool('overwrite',false));
+    JFactory::getApplication()->enqueueMessage($message[0],$message[1]);    
+  }
+  if (($task == 'folder' || $cookie) && $folders && $folders != $filestore )
 	{
 		$folders = '/' . $folders;
     $files = JFolder::files(JPATH_ROOT . '/' . $filestore . $folders, $doctypes, true, true);
@@ -85,7 +111,7 @@ else
      $folders = '';
      $files = JFolder::files(JPATH_ROOT . '/' . $filestore, $doctypes, false, true);
   }
-		$urlarray = array();
+    $urlarray = array();
 		foreach ($this->items as $url)
 		{
 			$urlarray[$url->url] = array($url->state, $url->id, $url->title);
@@ -106,6 +132,8 @@ else
 				<?php echo JText::_('COM_FILELINKS_TH_FILE'); ?></th>
 			<th class="thtitle">
 				<?php echo JText::_('COM_FILELINKS_TH_TITLE'); ?></th>
+      <th class="thfilesize">
+        <?php echo JText::_('COM_FILELINKS_TH_FILESIZE'); ?></th></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -132,9 +160,12 @@ else
 				echo '<td><i class="stateu"></i></td>';
 				echo '<td><a class="copylink" href="#" onclick="window.prompt(' ."'Press CTRL+C, then ENTER'" .',(this.innerText || this.textContent)); return false;">' . $filestore . $folders . '/' . $file . '</a></td><td>&nbsp;</td>';
 			}
+      echo '<td>' . FilelinksHelper::getFilesize(JPATH_ROOT . '/' . $filestore . $folders . '/' . $file).'</td>';
 			echo '</tr>';
 		}
 		echo '</tbody></table>';
 
 }
 echo '</div>';
+
+
