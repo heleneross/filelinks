@@ -27,7 +27,7 @@ class plgContentFilelinks extends JPlugin
 	function onContentPrepare($context, &$article, &$params, $limitstart = 0)
 	{
 
-		// exit plugin if there's no text to process
+    // exit plugin if there's no text to process
 		if (!isset($article->text))
 		{
 			return;
@@ -70,7 +70,7 @@ class plgContentFilelinks extends JPlugin
 		$raw = false;
 
 		// Save the default options for later
-		$defoptions = array('raw' => false, 'icon' => $icon, 'description' => $description);
+		$defoptions = array('raw' => false, 'icon' => $icon, 'description' => $description, 'size' => false, 'customclass' => 'class="filelink"');
 
 		$db = JFactory::getDBO();
 
@@ -113,7 +113,7 @@ class plgContentFilelinks extends JPlugin
 			// Reset all options to defaults
 			extract($defoptions, EXTR_OVERWRITE);
 
-			// Options are raw, icon, noicon, desc, nodesc
+			// Options are raw, icon, noicon, desc, nodesc, size
 			if ($matches[2])
 			{
 				$options = explode('|', $matches[2]);
@@ -145,11 +145,13 @@ class plgContentFilelinks extends JPlugin
 					case 'nodesc':
 						$description = false;
 						break;
+          case 'size':
+            $size = true;
+            break;
 					default:
+            $customclass = 'class="filelink ' . str_replace(array('&quot;','&#39;','"',"'"),'',$value) . '"';
 				}
 			}
-
-
 			$filelinkid = $matches[1];
 			$buffer = '';
 
@@ -158,7 +160,7 @@ class plgContentFilelinks extends JPlugin
 			// check to see we have a link to replace, maybe not if user is not authorised or article is not published or incorrect doctype
 			if (isset($row) && preg_match($doctypes, $row['url']))
 			{
-				$fileurl = JURI::base() . JPath::clean($row['url'], '/');
+				$fileurl = JPath::clean($row['url'], '/');
 				if ($raw)
 				{
 					$article->text = preg_replace("#\{\s*filelink\s*\|\s*(\d+)(.*?)\}#", $fileurl, $article->text, 1);
@@ -178,7 +180,8 @@ class plgContentFilelinks extends JPlugin
 				{
 					$icon = '';
 				}
-				$buffer = '<a href="' . $fileurl . '" title="' . $filetitle . '"' . $pblank . ' class="filelink">' . $icon . $linktitle . '</a>';
+				$buffer = '<a href="' . $fileurl . '" title="' . $filetitle . '"' . $pblank . $customclass.'>' . $icon . $linktitle . '</a>';
+        $buffer .=  $size ? '<span class="filelink-size">' . FilelinksHelper::getFilesize($fileurl) . '</span>' : '';
 				if ($description && !empty($row['description']))
 				{
 					$buffer .= '<span class="filelink-description">' . htmlspecialchars($row['description']). '</span>';

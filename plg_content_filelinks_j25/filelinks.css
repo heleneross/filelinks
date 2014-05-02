@@ -1,8 +1,11 @@
 /* single item */
-a.filelink {display:block;}
+/*a.filelink {display:block;}
+#centercontent a[target="_blank"].filelink:after {content:none}*/
 a.filelink > img {padding-right:5px;}
 span.filelink-description {display:block;margin-bottom:10px;}
-
+.filelink-size:after {content: ')'}
+.filelink-size:before {content: '('}
+.filelink-size {padding-left: 5px; color:#999; font-size:0.6em;vertical-align:10%}
 /* title */
 .filelinkcat-title {}
 /* div container */

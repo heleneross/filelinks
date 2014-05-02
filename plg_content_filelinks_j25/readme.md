@@ -93,6 +93,7 @@ Options can be in any order. The available options at present are:
 *   **noicon** - suppresses the icon for this one item
 *   **desc** - adds the item description after the link
 *   **nodesc** - suppresses the item description
+*   **size** - adds the filesize after the link 
 
 ![single article](/com_filelinks_j25/media/help/single.jpg "single article")
 
@@ -120,7 +121,7 @@ Options can be in any order. The available options at present are:
   </li>
   
   <li>
-    <pre>{filelink|4|the item title|noimg|desc}</pre>
+    <pre>{filelink|4|the item title|noimg|desc|size}</pre>
   </li>
   
   <li>
