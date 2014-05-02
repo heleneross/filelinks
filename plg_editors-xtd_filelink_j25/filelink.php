@@ -36,23 +36,13 @@ class plgButtonFilelink extends JPlugin
 	 *
 	 * @return array A two element array of (article_id, article_title)
 	 */
-	function onDisplay($name, $asset, $author)
+	function onDisplay($name)
 	{
 		$app = JFactory::getApplication();
-		$params = JComponentHelper::getParams('com_filelinks');
 		$user = JFactory::getUser();
-		$extension = JRequest::getCmd('option');
-		if ($asset == ''){
-			$asset = $extension;
-		}
-
-		if (	$user->authorise('core.edit', $asset)
-			||	$user->authorise('core.create', $asset)
-			||	(count($user->getAuthorisedCategories($asset, 'core.create')) > 0)
-			||	($user->authorise('core.edit.own', $asset) && $author == $user->id)
-			||	(count($user->getAuthorisedCategories($extension, 'core.edit')) > 0)
-			||	(count($user->getAuthorisedCategories($extension, 'core.edit.own')) > 0 && $author == $user->id)
-		)
+		$asset = 'com_filelinks';
+    //any of the following privileges allows user to see this button
+		if ($user->authorise('core.view', $asset))
       {  /*
     		 * Javascript to insert the link
     		 * View element calls jSelectFile when an article is clicked
