@@ -55,6 +55,8 @@ input#chosen, input#overwrite {vertical-align:top;margin-right:10px;margin-left:
 #fileupload label{vertical-align:baseline}
 #fileupload .button {padding:3px 8px}
 
+fieldset#filelink-options input[type="checkbox"] {margin-left: 5px;}
+fieldset#filelink-options input[type="text"] {margin-left: 5px; width: 200px;}
 
 i.state-2 {background-image: url(../images/icon-16-trash.png);}
 i.state0 {background-image: url(../images/publish_x.png);}
