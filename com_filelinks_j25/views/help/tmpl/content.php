@@ -9,9 +9,9 @@
 <h3>Icons</h3>
 
 <p>Add an icon for the filetype of the item before the link<br />
-the icons are installed in <span class="typewriterb">media/com_filelinks/images</span> when you install the component<br />
-these are 16x16 icons released into the public domain by <a href="http://www.splitbrain.org/projects/file\_icons" target="\_blank">http://www.splitbrain.org/projects/file_icons</a> and you should have most of the icons you need<br />
-they all have the extension as the filename eg. pdf.png so you could add any unusual ones you might need</p>
+	the icons are installed in <span class="typewriterb">media/com_filelinks/images</span> when you install the component<br />
+	these are 16x16 icons released into the public domain by <a href="http://www.splitbrain.org/projects/file\_icons" target="\_blank">http://www.splitbrain.org/projects/file_icons</a> and you should have most of the icons you need<br />
+	they all have the extension as the filename eg. pdf.png so you could add any unusual ones you might need</p>
 
 <h3>New Window</h3>
 
@@ -26,7 +26,7 @@ they all have the extension as the filename eg. pdf.png so you could add any unu
 <h3>Use CSS</h3>
 
 <p><strong>No</strong> if you want to style the items in your template CSS<br />
-<strong>Yes</strong> if you want to use the default css file installed by the plugin or your own css file</p>
+	<strong>Yes</strong> if you want to use the default css file installed by the plugin or your own css file</p>
 
 <h3>CSS Path</h3>
 
@@ -46,7 +46,7 @@ they all have the extension as the filename eg. pdf.png so you could add any unu
 <h3>Viewing rules</h3>
 
 <p><strong>category</strong>: the item category takes precedence, so no matter what Access you have on an item the list will only be output if the User has viewing rights for that category. Useful if you have set up categories for registered users.<br />
-<strong>item</strong>: the article Access takes precedence, ignoring the category Access rules. Each item has individual viewing rights.</p>
+	<strong>item</strong>: the article Access takes precedence, ignoring the category Access rules. Each item has individual viewing rights.</p>
 
 <h3>Use template</h3>
 
@@ -54,20 +54,20 @@ they all have the extension as the filename eg. pdf.png so you could add any unu
 </p><img src="<?php echo JURI::root();?>media/com_filelinks/help/dl.jpg" alt="dl list" title="dl list" />
 
 <p>The file used is in <span class="typewriterb">plugins/content/filelinks/tmpl/default.php</span><br />
-Copy this file to <span class="typewriterb">yourtemplate/html/plg_content_filelinks/default.php</span> and then you can edit the file to give the output you require<br />
-You have <em>id, url, title, description</em> in the result set and will have to iterate over the $rows object to get the individual items<br />
-at the end of the foreach loop you should echo the html you want to show. See <span class="typewriter">filelinks.php</span> from lines 51 for the variables you have available</p>
+	Copy this file to <span class="typewriterb">yourtemplate/html/plg_content_filelinks/default.php</span> and then you can edit the file to give the output you require<br />
+	You have <em>id, url, title, description</em> in the result set and will have to iterate over the $rows object to get the individual items<br />
+	at the end of the foreach loop you should echo the html you want to show. See <span class="typewriter">filelinks.php</span> from lines 51 for the variables you have available</p>
 
 <hr>
 
 <h1 style="margin-left:0">Filelinks Editors-xtd Button</h1>
 
 <p>This allows you to easily insert the markup required by the Filelinks content plugin into any article. The button has no plugin options - it simply calls the modal view of the Filelinks Items.<br />
-Simply position your cursor where you want the link inserted in the editor, click the button and choose the item. You have the normal filters and search for the items.<br />
-Alternatively, click on any Category in the list and category list markup will be added instead.</p>
+	Simply position your cursor where you want the link inserted in the editor, click the button and choose the item. You have the normal filters and search for the items.<br />
+	Alternatively, click on any Category in the list and category list markup will be added instead.</p>
 
 <p>For a category list the button inserts the markup within a div with a class of filelistcat - this is necessary for the output to validate. Tested on a number of popular content editors but it is not foolproof.<br />
-If you position your cursor within a heading for instance and then add a category list the editor can get confused, so best practice is to position your cursor on a blank line.
+	If you position your cursor within a heading for instance and then add a category list the editor can get confused, so best practice is to position your cursor on a blank line.
 </p><img src="<?php echo JURI::root();?>media/com_filelinks/help/button.jpg" alt="editors-xtd button" title="editors-xtd button" />
 
 <p>&nbsp;</p><img src="<?php echo JURI::root();?>media/com_filelinks/help/modal.jpg" alt="modal article/category selection" title="modal article/category selection" />
@@ -79,14 +79,14 @@ If you position your cursor within a heading for instance and then add a categor
 <pre>{filelink|4|the article title}</pre>
 
 <p>The markup is surrounded by curly brackets and the options are separated by a pipe | character with no spaces around the options.<br />
-The first option should be</p>
+	The first option should be</p>
 
 <pre>filelink</pre>
 
 <p>and the second is a number, the item id.</p>
 
 <p>Next comes the text to be shown for the link - the button inserts this from the item title but you can edit this to read whatever you want if you would like to override the item title.<br />
-Strictly speaking the this option is not required so markup such as</p>
+	Strictly speaking the this option is not required so markup such as</p>
 
 <pre>{filelink|4}</pre>
 
@@ -95,20 +95,20 @@ Strictly speaking the this option is not required so markup such as</p>
 <h4>Single Filelink options</h4>
 
 <p>All extra options should have a pipe between them - please do not leave out the article title if you add extra options.
-Options can be in any order. The available options at present are:</p>
+	Options can be in any order. The available options at present are:</p>
 
 <ul>
-<li><strong>raw</strong> - outputs just the url, nothing else. All other options are ignored. You can use this if you want to wrap the url in your own html eg. </li>
+	<li><strong>raw</strong> - outputs just the url, nothing else. All other options are ignored. You can use this if you want to wrap the url in your own html eg. </li>
 </ul>
 
 <pre>&lt;a href="{filelink|2|my link}" class="button"&gt;link text&lt;/a&gt;</pre>
 
 <ul>
-<li><strong>icon</strong> - adds the icon before the link for this one item</li>
-<li><strong>noicon</strong> - suppresses the icon for this one item</li>
-<li><strong>desc</strong> - adds the item description after the link</li>
-<li><strong>nodesc</strong> - suppresses the item description</li>
-<li><strong>size</strong> - adds the filesize after the link</li>
+	<li><strong>icon</strong> - adds the icon before the link for this one item</li>
+	<li><strong>noicon</strong> - suppresses the icon for this one item</li>
+	<li><strong>desc</strong> - adds the item description after the link</li>
+	<li><strong>nodesc</strong> - suppresses the item description</li>
+	<li><strong>size</strong> - adds the filesize after the link</li>
 </ul>
 
 <p>&nbsp;</p><img src="<?php echo JURI::root();?>media/com_filelinks/help/single.jpg" alt="single article" title="single article" />
@@ -116,33 +116,33 @@ Options can be in any order. The available options at present are:</p>
 <p><strong>Valid examples:</strong></p>
 
 <ul style="list-style-type: none">
-  <li>
-    <pre>{filelink|4|the item title}</pre>
-  </li>
-  
-  <li>
-    <pre>{filelink|4|}</pre>
-  </li>
-  
-  <li>
-    <pre>{filelink|4}</pre>
-  </li>
-  
-  <li>
-    <pre>{filelink|4|the item title|raw}</pre>
-  </li>
-  
-  <li>
-    <pre>{filelink|4||raw}</pre>
-  </li>
-  
-  <li>
-    <pre>{filelink|4|the item title|noimg|desc}</pre>
-  </li>
-  
-  <li>
-    <pre>{filelink|4||noimg|desc}</pre>
-  </li>
+	<li>
+		<pre>{filelink|4|the item title}</pre>
+	</li>
+
+	<li>
+		<pre>{filelink|4|}</pre>
+	</li>
+
+	<li>
+		<pre>{filelink|4}</pre>
+	</li>
+
+	<li>
+		<pre>{filelink|4|the item title|raw}</pre>
+	</li>
+
+	<li>
+		<pre>{filelink|4||raw}</pre>
+	</li>
+
+	<li>
+		<pre>{filelink|4|the item title|noimg|desc}</pre>
+	</li>
+
+	<li>
+		<pre>{filelink|4||noimg|desc}</pre>
+	</li>
 </ul>
 
 <p><strong>Bad examples:</strong></p>
@@ -150,25 +150,25 @@ Options can be in any order. The available options at present are:</p>
 <p>Invalid in red, the others don't really make sense as they have conflicting options</p>
 
 <ul style="list-style-type: none">
-  <li>
-    <pre style="color:red">{filelink|4|raw}</pre>
-  </li>
-  
-  <li>
-    <pre style="color:red">{file-link|4}</pre>
-  </li>
-  
-  <li>
-    <pre style="color:red">{filelink|4|title|icon desc}</pre>
-  </li>
-  
-  <li>
-    <pre>{filelink|4|title|icon|raw}</pre>
-  </li>
-  
-  <li>
-    <pre>{filelink|4|title|icon|desc|noicon}</pre>
-  </li>
+	<li>
+		<pre style="color:red">{filelink|4|raw}</pre>
+	</li>
+
+	<li>
+		<pre style="color:red">{file-link|4}</pre>
+	</li>
+
+	<li>
+		<pre style="color:red">{filelink|4|title|icon desc}</pre>
+	</li>
+
+	<li>
+		<pre>{filelink|4|title|icon|raw}</pre>
+	</li>
+
+	<li>
+		<pre>{filelink|4|title|icon|desc|noicon}</pre>
+	</li>
 </ul>
 
 <h3>Category List</h3>
@@ -182,7 +182,7 @@ Options can be in any order. The available options at present are:</p>
 <h2>TODO</h2>
 
 <ul>
-<li>Descriptions set separately for filelinks and filelinkcat</li>
-<li>Category list options</li>
-<li>Choice of template name</li>
+	<li>Descriptions set separately for filelinks and filelinkcat</li>
+	<li>Category list options</li>
+	<li>Choice of template name</li>
 </ul>
