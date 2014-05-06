@@ -1,41 +1,41 @@
 .icon-48-files {
-      background-image: url(../images/l_files.png);
-      padding-left:60px!important;
+    background-image: url(../images/l_files.png);
+    padding-left:60px!important;
 }
 
 .icon-48-editfiledetails {
-      background-image: url(../images/l_files.png);
-      padding-left:60px!important;
+    background-image: url(../images/l_files.png);
+    padding-left:60px!important;
 }
 
 .icon-48-findfiles {
-      background-image: url(../images/l_findfiles.png);
-      padding-left:60px!important;
+    background-image: url(../images/l_findfiles.png);
+    padding-left:60px!important;
 }
 
 .notfound {color:red;}
 .wrongext {color: #ff9d66;}
 
 .copylink {
-   border-radius:5px;
-   padding:0px 2px 0px 2px;
-   color: #666;
-   font-weight: none;
-   text-decoration: none;
-   opacity:.7;
-cursor:pointer;
-  }
-  
-.copylink:hover {
-   opacity:1;
-   color: #FFF;
-   background-color: #407EC9; /*#407EC9*/
-   text-decoration: underline;
-   -o-transition: background .5s linear;
-   -moz-transition: background .5s linear;
-   -webkit-transition: background .5s linear;
+    border-radius:5px;
+    padding:0 2px 0 2px;
+    color: #666;
+    font-weight: normal;
+    text-decoration: none;
+    opacity:.7;
+    cursor:pointer;
+}
 
-  }
+.copylink:hover {
+    opacity:1;
+    color: #FFF;
+    background-color: #407EC9; /*#407EC9*/
+    text-decoration: underline;
+    -o-transition: background .5s linear;
+    -moz-transition: background .5s linear;
+    -webkit-transition: background .5s linear;
+
+}
 
 th.thview{width:5%}
 th.thaction{width:5%}
@@ -46,13 +46,14 @@ th.thtitle{width:43%}
 span.pub1 {color:#31B526}
 span.pub0 {color: #c6bccc}
 span.pub-2 {color: red}
+span.filesize {float:right}
 
 .findfiles i {background-repeat: no-repeat;padding:2px 8px}
 #folderform {float:left;padding-left:5px}
 #fileupload {float:right;padding-right:5px;}
 input#chosen, input#overwrite {vertical-align:top;margin-right:10px;margin-left:0}
 #fileupload label{vertical-align:baseline}
- #fileupload .button {padding:3px 8px}
+#fileupload .button {padding:3px 8px}
 
 
 i.state-2 {background-image: url(../images/icon-16-trash.png);}
@@ -150,7 +151,3 @@ i.xml {background-image:url(../../../../../media/com_filelinks/images/xml.png);}
 i.xpi {background-image:url(../../../../../media/com_filelinks/images/xpi.png);}
 i.xvid {background-image:url(../../../../../media/com_filelinks/images/xvid.png);}
 i.zip {background-image:url(../../../../../media/com_filelinks/images/zip.png);}
-
-
-
-
