@@ -80,10 +80,13 @@ $saveOrder = $listOrder == 'a.ordering';
 		<th class='left'>
 			<?php echo JHtml::_('grid.sort', 'COM_FILELINKS_FILES_CATID', 'a.catid', $listDirn, $listOrder); ?>
 		</th>
+		<th class='left'>
+			<?php echo JHtml::_('grid.sort', 'COM_FILELINKS_FILES_DESCRIPTION', 'a.description', $listDirn, $listOrder); ?>
+		</th>
 		<th class="'left">
 			<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ACCESS', 'a.access', $listDirn, $listOrder); ?>
 		</th>
-		<th class='left'>
+		<th class='left nowrap'>
 			<?php echo JHtml::_('grid.sort', 'COM_FILELINKS_FILES_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 		</th>
 
@@ -98,7 +101,7 @@ $saveOrder = $listOrder == 'a.ordering';
 		<?php if (isset($this->items[0]->ordering))
 		{
 			?>
-			<th width="10%">
+			<th width="1%">
 				<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ORDERING', 'a.ordering', $listDirn, $listOrder); ?>
 				<?php if ($canOrder && $saveOrder) : ?>
 					<?php echo JHtml::_('grid.order', $this->items, 'filesave.png', 'files.saveorder'); ?>
@@ -178,6 +181,9 @@ $saveOrder = $listOrder == 'a.ordering';
 			</td>
 			<td>
 				<?php echo $item->catid; ?>
+			</td>
+			<td>
+				<?php echo $this->escape($item->description); ?>
 			</td>
 			<td>
 				<?php echo $this->escape($item->access_level); ?>
