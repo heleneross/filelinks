@@ -71,7 +71,7 @@ class plgContentFilelinks extends JPlugin
 		$raw = false;
 
 		// Save the default options for later
-		$defoptions = array('raw' => false, 'icon' => $icon, 'description' => $description, 'size' => false, 'customclass' => 'class="filelink"');
+		$defoptions = array('raw' => false, 'icon' => $icon, 'description' => $description, 'size' => false, 'customclass' => 'class="filelink"', 'pblank' => $pblank);
 
 		$db = JFactory::getDBO();
 
@@ -149,6 +149,12 @@ class plgContentFilelinks extends JPlugin
 					case 'size':
 						$size = true;
 						break;
+          case 'new':
+            $pblank = ' target="_blank" ';
+            break;
+          case 'same':
+            $pblank = ' ';
+            break;
 					default:
 						$customclass = 'class="filelink ' . str_replace(array('&quot;', '&#39;', '"', "'"), '', $value) . '"';
 				}
