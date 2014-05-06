@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version     1.0.4
+ * @version     2.0.0
  * @package     com_filelinks
  * @copyright   Copyright (C) Helen 2014. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt

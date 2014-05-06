@@ -1,6 +1,6 @@
 <?php
 /**
- * @version     1.0.6
+ * @version     2.0.0
  * @package     com_filelinks
  * @copyright   Copyright (C) Helen 2014. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -19,15 +19,15 @@ class FilelinksControllerFindfiles extends JControllerAdmin
 {
 	/**
 	 * Proxy for getModel.
-	 * @since	1.6
+	 * @since    1.6
 	 */
 	public function getModel($name = 'findfile', $prefix = 'FilelinksModel')
 	{
 		$model = parent::getModel($name, $prefix, array('ignore_request' => true));
 		return $model;
 	}
-    
-    
+
+
 	/**
 	 * Method to save the submitted ordering values for records via AJAX.
 	 *
@@ -60,7 +60,6 @@ class FilelinksControllerFindfiles extends JControllerAdmin
 		// Close the application
 		JFactory::getApplication()->close();
 	}
-    
-    
-    
+
+
 }

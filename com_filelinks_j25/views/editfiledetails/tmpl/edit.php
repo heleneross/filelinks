@@ -1,6 +1,6 @@
 <?php
 /**
- * @version     1.0.4
+ * @version     2.0.0
  * @package     com_filelinks
  * @copyright   Copyright (C) Helen 2014. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -16,13 +16,13 @@ JHtml::_('behavior.keepalive');
 $document = JFactory::getDocument();
 $document->addStyleSheet('components/com_filelinks/assets/css/filelinks.css');
 $input = JFactory::getApplication()->input;
-$task = $input->getCmd('task','');
+$task = $input->getCmd('task', '');
 
 //for validating input
 $filestore = JComponentHelper::getParams('com_filelinks')->get('filestore');
 $filestore = trim($filestore, '.\\/ ');
 $doctypes = FilelinksHelper::getDoctypes();
-$jregex = '/' . str_replace('^','^'.$filestore.'\/',$doctypes) . '/';
+$jregex = '/' . str_replace('^', '^' . $filestore . '\/', $doctypes) . '/';
 
 ?>
 <script type="text/javascript">
@@ -54,7 +54,7 @@ $jregex = '/' . str_replace('^','^'.$filestore.'\/',$doctypes) . '/';
 					Joomla.submitform(task, document.getElementById('editfiledetails-form'));
 				}
 				else {
-          var regex = <?php echo $jregex;?>;
+					var regex = <?php echo $jregex;?>;
 					if (task != 'editfiledetails.cancel' && document.formvalidator.isValid(document.id('editfiledetails-form')) && regex.test(document.getElementById('jform_url').value)) {
 
 						Joomla.submitform(task, document.getElementById('editfiledetails-form'));
@@ -75,7 +75,7 @@ if ($task == 'add')
 	$title = $stitle ? $stitle : $title;
 	$url = base64_decode($input->get('url', ''));
 	$this->form->setValue('title', null, JFile::stripExt($title));
-	$this->form->setValue('url', null, ltrim($url,'.\\/ '));
+	$this->form->setValue('url', null, ltrim($url, '.\\/ '));
 }
 
 ?>
