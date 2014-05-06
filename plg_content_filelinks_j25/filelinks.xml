@@ -7,7 +7,7 @@
     <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
     <authorEmail>heleneross@gmail.com</authorEmail>
     <authorUrl>bfgnet.de</authorUrl>
-    <version>0.5</version>
+    <version>2.0.0</version>
     <description><![CDATA[<p>Inserts filelinks into content via markup</p><p><a href="#" id="pluginhelp" onclick="Joomla.popupWindow('../plugins/content/filelinks/help.html','plugin help',700,500,1)">Plugin Help</a></p><p>Don&#39;t forget to publish the plugin</p>]]>
     </description>
 

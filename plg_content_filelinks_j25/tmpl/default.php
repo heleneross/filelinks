@@ -2,19 +2,24 @@
 /**
  * Created by PhpStorm.
  * User: Helen
- * Date: 25/02/14
+ * Date: 05-05-2014
  * Time: 11:46
  */
 defined('_JEXEC') or die('Restricted access');
-
+if ($article->id == '80')
+{
+	$pblank = " ";
+	$addtitle = false;
+}
 // you have id, url, title, description in the result set
 $temp = '';
-if ($addtitle)
+if ($addtitle && !empty($htitle))
 {
 	$title = '<h' . $htitle . ' class="filelinkcat-title">' . htmlspecialchars($title) . '</h' . $htitle . '>';
 }
-else{
-	$title='';
+else
+{
+	$title = '';
 }
 foreach ($rows as $row)
 {
