@@ -1,6 +1,6 @@
 <?php
 /**
- * @version     1.0.4
+ * @version     2.0.0
  * @package     com_filelinks
  * @copyright   Copyright (C) Helen 2014. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -48,7 +48,7 @@ $saveOrder = $listOrder == 'a.ordering';
 		JForm::addFormPath(JPATH_COMPONENT . '/models/forms');
 		$form = JForm::getInstance('com_filelinks.editfiledetails', 'editfiledetails');
 		echo $form->getLabel('filter_catid');
-		echo str_replace('<option value="0">Root</option>',	'<option value="">' . JText::_('JOPTION_SELECT_CATEGORY') . '</option>', $form->getInput('filter_catid', null, $selected_catid));
+		echo str_replace('<option value="0">Root</option>', '<option value="">' . JText::_('JOPTION_SELECT_CATEGORY') . '</option>', $form->getInput('filter_catid', null, $selected_catid));
 		?>
 	</div>
 
