@@ -9,7 +9,7 @@
 defined('_JEXEC') or die;
 
 /**
- * Editor Filelink buton
+ * Editor Filelink button
  *
  * @package        Joomla.Plugin
  * @subpackage     Editors-xtd.filelink
@@ -37,7 +37,9 @@ class plgButtonFilelink extends JPlugin
 	/**
 	 * Display the button
 	 *
-	 * @return array A two element array of (article_id, article_title)
+	 * @param $name
+	 *
+	 * @return object $button
 	 */
 	function onDisplay($name)
 	{
@@ -70,7 +72,7 @@ class plgButtonFilelink extends JPlugin
 			$css = '.button2-left .filelink {background: url(' . JURI::root(true) . '/plugins/editors-xtd/filelink/j_button2_filelinks.png) 100% 0 no-repeat}';
 
 			$doc = JFactory::getDocument();
-			$doc->addScriptDeclaration($js);
+			//$doc->addScriptDeclaration($js);
 			$doc->addScriptDeclaration($jscat);
 			$doc->addStyleDeclaration($css);
 
