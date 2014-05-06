@@ -1,10 +1,10 @@
 <?php
 /**
- * @package       plg_filelinks for Joomla! 2.5+
- * @version       $Id: filelinks.php 2012-09-14 $
- * @author        Helen Ross
- * @copyright (c) 2014 Helen Ross
- * @license       GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @package           plg_filelinks for Joomla! 2.5+
+ * @version           $Id: filelinks.php 2014-05-05 $
+ * @author            Helen Ross
+ * @copyright         (c) 2014 Helen Ross
+ * @license           GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  **/
 
 defined('_JEXEC') or die('Restricted access');
@@ -27,7 +27,7 @@ class plgContentFilelinks extends JPlugin
 	function onContentPrepare($context, &$article, &$params, $limitstart = 0)
 	{
 
-    // exit plugin if there's no text to process
+		// exit plugin if there's no text to process
 		if (!isset($article->text))
 		{
 			return;
@@ -40,7 +40,8 @@ class plgContentFilelinks extends JPlugin
 
 		$app = JFactory::getApplication();
 		// Don't run in back-end
-		if ($app->isAdmin()) {
+		if ($app->isAdmin())
+		{
 			return;
 		}
 
@@ -145,11 +146,11 @@ class plgContentFilelinks extends JPlugin
 					case 'nodesc':
 						$description = false;
 						break;
-          case 'size':
-            $size = true;
-            break;
+					case 'size':
+						$size = true;
+						break;
 					default:
-            $customclass = 'class="filelink ' . str_replace(array('&quot;','&#39;','"',"'"),'',$value) . '"';
+						$customclass = 'class="filelink ' . str_replace(array('&quot;', '&#39;', '"', "'"), '', $value) . '"';
 				}
 			}
 			$filelinkid = $matches[1];
@@ -180,11 +181,11 @@ class plgContentFilelinks extends JPlugin
 				{
 					$icon = '';
 				}
-				$buffer = '<a href="' . $fileurl . '" title="' . $filetitle . '"' . $pblank . $customclass.'>' . $icon . $linktitle . '</a>';
-        $buffer .=  $size ? '<span class="filelink-size">' . FilelinksHelper::getFilesize($fileurl) . '</span>' : '';
+				$buffer = '<a href="' . $fileurl . '" title="' . $filetitle . '"' . $pblank . $customclass . '>' . $icon . $linktitle . '</a>';
+				$buffer .= $size ? '<span class="filelink-size">' . FilelinksHelper::getFilesize($fileurl) . '</span>' : '';
 				if ($description && !empty($row['description']))
 				{
-					$buffer .= '<span class="filelink-description">' . htmlspecialchars($row['description']). '</span>';
+					$buffer .= '<span class="filelink-description">' . htmlspecialchars($row['description']) . '</span>';
 				}
 				$article->text = preg_replace("#\{\s*filelink\s*\|\s*(\d+)(.*?)\}#", $buffer, $article->text, 1);
 			}
