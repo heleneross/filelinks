@@ -25,6 +25,7 @@ class FilelinksController extends JController
 	public function display($cachable = false, $urlparams = false)
 	{
 		require_once JPATH_COMPONENT . '/helpers/filelinks.php';
+		require_once JPATH_COMPONENT . '/helpers/editfiledetails.php';
 
 		$view = JFactory::getApplication()->input->getCmd('view', 'files');
 		JFactory::getApplication()->input->set('view', $view);

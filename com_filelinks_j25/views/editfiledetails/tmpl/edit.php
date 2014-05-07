@@ -18,12 +18,16 @@ $document->addStyleSheet('components/com_filelinks/assets/css/filelinks.css');
 $input = JFactory::getApplication()->input;
 $task = $input->getCmd('task', '');
 
+$params = JComponentHelper::getParams('com_filelinks');
+
 //for validating input
-$filestore = JComponentHelper::getParams('com_filelinks')->get('filestore');
+$filestore = $params->get('filestore');
 $filestore = trim($filestore, '.\\/ ');
 $doctypes = FilelinksHelper::getDoctypes();
 $jregex = '/' . str_replace('^', '^' . $filestore . '\/', $doctypes) . '/';
 
+$this->searchdb = $params->get('searchdb',1);
+$this->r_tablesnames = $params->get('r_dbtables','');
 ?>
 <script type="text/javascript">
 	function getScript(url, success) {
@@ -113,8 +117,30 @@ if ($task == 'add')
 			</ul>
 		</fieldset>
 	</div>
-
-
+	<?php if($this->searchdb) : ?>
+	<div class="width-40 fltrt">
+		<fieldset class="adminform">
+			<legend>Filelink Used In: </legend>
+			<?php
+			if (isset($this->item->id))
+			{
+				$this->filelink = true;
+				echo $this->loadTemplate('dbresult');
+			}
+			?>
+		</fieldset>
+		<fieldset class="adminform">
+			<legend>Filelinkcat Used In: </legend>
+			<?php
+			if (isset($this->item->id) && isset($this->item->catid))
+			{
+				$this->filelink = false;
+				echo $this->loadTemplate('dbresult');
+			}
+			?>
+		</fieldset>
+	</div>
+<?php endif; ?>
 	<input type="hidden" name="task" value=""/>
 	<?php echo JHtml::_('form.token'); ?>
 	<div class="clr"></div>
