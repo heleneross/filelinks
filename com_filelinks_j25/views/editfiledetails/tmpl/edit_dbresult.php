@@ -23,6 +23,8 @@ else
 }
 
 $id = $this->filelink ? $this->item->id : $this->item->catid;
+$foundtext = $this->filelink ? '<p>No filelinks found</p>' : '<p>No filelinkcats found</p>';
+$found = false;
 
 if ($this->searchdb > 0)
 {
@@ -38,6 +40,7 @@ if ($this->searchdb > 0)
 			echo '</tr>';
 		}
 		echo '</tbody></table>';
+		$found = true;
 	}
 
 	if ($modules = EditFileDetailsHelper::getFilelistModules($id, $this->filelink))
@@ -54,6 +57,7 @@ if ($this->searchdb > 0)
 			echo '</tr>';
 		}
 		echo '</tbody></table>';
+		$found = true;
 	}
 
 	if (!empty($r_tablesnames) && $others = EditFileDetailsHelper::showTables($id, $r_tablesnames, $this->filelink))
@@ -71,5 +75,7 @@ if ($this->searchdb > 0)
 			}
 		}
 		echo '</tbody></table>';
+		$found = true;
 	}
+	if (!$found) {echo $foundtext;}
 }
