@@ -3,6 +3,21 @@
 #centercontent a[target="_blank"].filelink:after {content:none}*/
 a.filelink > img {padding-right:5px;}
 span.filelink-description {display:block;margin-bottom:10px;}
+i.info {
+    margin:0 20px;
+}
+.hideable i {
+    cursor: pointer;
+}
+.hideable.hidden i:after {
+    content:"Show info";
+}
+.hideable i:after {
+    content:"Hide";
+}
+.hideable.hidden .filelink-description {
+    display:none;
+}
 .filelink-size:after {content: ')'}
 .filelink-size:before {content: '('}
 .filelink-size {padding-left: 5px; color:#999; font-size:0.6em;vertical-align:10%}

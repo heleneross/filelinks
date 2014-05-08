@@ -1,10 +1,10 @@
 <?php
 /**
- * @package           plg_filelinks for Joomla! 2.5+
- * @version           $Id: filelinks.php 2014-05-05 $
- * @author            Helen Ross
+ * @package               plg_filelinks for Joomla! 2.5+
+ * @version               $Id: filelinks.php 2014-05-05 $
+ * @author                Helen Ross
  * @copyright         (c) 2014 Helen Ross
- * @license           GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ * @license               GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  **/
 
 defined('_JEXEC') or die('Restricted access');
@@ -54,9 +54,9 @@ class plgContentFilelinks extends JPlugin
 		$doctypes = '@' . FilelinksHelper::getDoctypes() . '@';
 
 		$template = $app->getTemplate();
+		$document = JFactory::getDocument();
 		if ($this->params->def('usecss', true))
 		{
-			$document = JFactory::getDocument();
 			$document->addStyleSheet($this->params->def('stylepath', 'plugins/content/filelinks/filelinks.css'));
 		}
 		// get the plugin parameters
@@ -71,7 +71,7 @@ class plgContentFilelinks extends JPlugin
 		$raw = false;
 
 		// Save the default options for later
-		$defoptions = array('raw' => false, 'icon' => $icon, 'description' => $description, 'size' => false, 'customclass' => 'class="filelink"', 'pblank' => $pblank);
+		$defoptions = array('raw' => false, 'icon' => $icon, 'description' => $description, 'hiddendescription' => false, 'size' => false, 'customclass' => 'class="filelink"', 'pblank' => $pblank);
 
 		$db = JFactory::getDBO();
 
@@ -143,18 +143,22 @@ class plgContentFilelinks extends JPlugin
 					case 'desc':
 						$description = true;
 						break;
+					case 'hdesc':
+						$hiddendescription = true;
+						$description = true;
+						break;
 					case 'nodesc':
 						$description = false;
 						break;
 					case 'size':
 						$size = true;
 						break;
-          case 'new':
-            $pblank = ' target="_blank" ';
-            break;
-          case 'same':
-            $pblank = ' ';
-            break;
+					case 'new':
+						$pblank = ' target="_blank" ';
+						break;
+					case 'same':
+						$pblank = ' ';
+						break;
 					default:
 						$customclass = 'class="filelink ' . str_replace(array('&quot;', '&#39;', '"', "'"), '', $value) . '"';
 				}
@@ -191,8 +195,16 @@ class plgContentFilelinks extends JPlugin
 				$buffer .= $size ? '<span class="filelink-size">' . FilelinksHelper::getFilesize($fileurl) . '</span>' : '';
 				if ($description && !empty($row['description']))
 				{
+					if ($hiddendescription)
+					{
+						$js = "$(document).ready(function() { $( \".hideable\" ).addClass( \"hidden\" );$( \".hideable\" ).click(function() { $( this ).toggleClass( \"hidden\" );});});";
+						$document->addScriptDeclaration($js);
+						$buffer = '<div class="hideable">' . $buffer . '<i class="info"></i><span class="filelink-description">' . htmlspecialchars($row['description']) . '</span></div>';
+					}
+					else{
 					$buffer .= '<span class="filelink-description">' . htmlspecialchars($row['description']) . '</span>';
-				}
+					}
+					}
 				$article->text = preg_replace("#\{\s*filelink\s*\|\s*(\d+)(.*?)\}#", $buffer, $article->text, 1);
 			}
 			else
