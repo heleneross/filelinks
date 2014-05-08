@@ -296,4 +296,5 @@ class plgContentFilelinks extends JPlugin
 		}
 
 	}
+				$linktitle = htmlspecialchars(htmlspecialchars_decode(array_shift($options)));
 }
