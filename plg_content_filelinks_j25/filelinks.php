@@ -119,7 +119,7 @@ class plgContentFilelinks extends JPlugin
 			{
 				$options = explode('|', $matches[2]);
 				$options = array_map('trim', $options);
-				$linktitle = htmlspecialchars(array_shift($options));
+				$linktitle = htmlspecialchars(htmlspecialchars_decode(array_shift($options)));
 			}
 			else
 			{
@@ -296,5 +296,4 @@ class plgContentFilelinks extends JPlugin
 		}
 
 	}
-				$linktitle = htmlspecialchars(htmlspecialchars_decode(array_shift($options)));
 }
