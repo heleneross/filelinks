@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="2.5">
+<name>Filelinks package</name>
+<packagename>Filelinks</packagename>
+<version>2.0.0</version>
+<url>bfgnet.de</url>
+<packager>Helen</packager>
+<description>Filelinks component, editor-xtd plugin and  content plugin</description>
+<files>
+<file type="component" id="com_filelinks">com_filelinks_j25.zip</file>
+<file type="plugin" id="filelink" group="editors-xtd">plg_editors-xtd_filelink_j25.zip</file>
+<file type="plugin" id="filelinks" group="content">plg_content_filelinks_j25.zip</file>
+</files>
+</extension>
