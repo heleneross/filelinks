@@ -51,7 +51,6 @@
             <folder>views</folder>
         </files>
         <languages folder="administrator">
-
             <language tag="en-GB">language/en-GB.com_filelinks.ini</language>
             <language tag="en-GB">language/en-GB.com_filelinks.sys.ini</language>
         </languages>

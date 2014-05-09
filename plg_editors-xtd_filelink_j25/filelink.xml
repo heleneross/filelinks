@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="editors-xtd">
+<extension version="2.5" type="plugin" group="editors-xtd" method="upgrade">
 	<name>Button - Filelink</name>
 	<author>Helen</author>
 	<creationDate>2014</creationDate>
@@ -14,8 +14,8 @@
 		<filename>index.html</filename>
     <filename>j_button2_filelinks.png</filename>
 	</files>
-	<languages>
-		<language tag="en-GB">en-GB.plg_editors-xtd_filelink.ini</language>
-		<language tag="en-GB">en-GB.plg_editors-xtd_filelink.sys.ini</language>
+  <languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_editors-xtd_filelink.ini</language>
+		<language tag="en-GB">en-GB/en-GB.plg_editors-xtd_filelink.sys.ini</language>
 	</languages>
 </extension>
