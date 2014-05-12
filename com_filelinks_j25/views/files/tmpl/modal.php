@@ -41,21 +41,25 @@ $saveOrder = $listOrder == 'a.ordering';
 	<table style="width:100%">
 		<tbody>
 		<tr>
-			<td colspan="4">
+			<td colspan="1">
 				<label for="filelink-raw">Raw url?</label>
 				<input type="checkbox" name="filelink-raw" id="filelink-raw">
 			</td>
-		</tr>
-		<tr>
-			<td>
+			<td  colspan="3">
 				<label for="filelink-blank">Open link in new window?</label>
 				<input type="checkbox" value="1" <?php echo $params->get('blank') ? 'checked="checked"' : ''; ?>
 				       name="filelink-blank" id="filelink-blank">
 			</td>
+		</tr>
+		<tr>
 			<td>
 				<label for="filelink-description">Add link description?</label>
 				<input type="checkbox" value="1" <?php echo $params->get('description') ? 'checked="checked"' : ''; ?>
 				       name="filelink-description" id="filelink-description">
+			</td>
+			<td>
+				<label for="filelink-hdescription">Add hideable link description?</label>
+				<input type="checkbox" name="filelink-hdescription" id="filelink-hdescription">
 			</td>
 			<td>
 				<label for="filelink-filesize">Show filesize?</label>
@@ -273,11 +277,16 @@ $saveOrder = $listOrder == 'a.ordering';
 			else {
 				tag += <?php echo $params->get('icon')?> ? '|noicon' : '';
 			}
-			if (document.getElementById('filelink-description').checked) {
-				tag += <?php echo $params->get('description')?> ? '' : '|desc';
+			if (document.getElementById('filelink-hdescription').checked) {
+				tag += '|hdesc';
 			}
-			else {
-				tag += <?php echo $params->get('description')?> ? '|nodesc' : '';
+			else{
+				if (document.getElementById('filelink-description').checked) {
+					tag += <?php echo $params->get('description')?> ? '' : '|desc';
+				}
+				else {
+					tag += <?php echo $params->get('description')?> ? '|nodesc' : '';
+				}
 			}
 			if (document.getElementById('filelink-blank').checked) {
 				tag += <?php echo $params->get('blank')?> ? '' : '|new';

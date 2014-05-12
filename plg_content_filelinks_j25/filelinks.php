@@ -197,9 +197,8 @@ class plgContentFilelinks extends JPlugin
 				{
 					if ($hiddendescription)
 					{
-						$js = "$(document).ready(function() { $( \".hideable\" ).addClass( \"hidden\" );$( \".hideable\" ).click(function() { $( this ).toggleClass( \"hidden\" );});});";
-						$document->addScriptDeclaration($js);
-						$buffer = '<div class="hideable">' . $buffer . '<i class="info"></i><span class="filelink-description">' . htmlspecialchars($row['description']) . '</span></div>';
+						$addjs = true;
+						$buffer .= '<span class="hideable"><i class="info"></i><span class="filelink-description">' . htmlspecialchars($row['description']) . '</span></span>';
 					}
 					else{
 					$buffer .= '<span class="filelink-description">' . htmlspecialchars($row['description']) . '</span>';
@@ -211,6 +210,12 @@ class plgContentFilelinks extends JPlugin
 			{
 				$article->text = preg_replace("#\{\s*filelink\s*\|\s*(\d+)(.*?)\}#", '', $article->text, 1);
 			}
+		}
+		// add this once if we have hidden descriptions on the page
+		if ($addjs)
+		{
+			$js = "jQuery(document).ready(function() { jQuery( \".hideable\" ).addClass( \"hidden\" );jQuery( \".hideable\" ).click(function() { jQuery( this ).toggleClass( \"hidden\" );});});";
+			$document->addScriptDeclaration($js);
 		}
 		// match filelinkcat
 		while (preg_match("#\{\s*filelinkcat\s*\|\s*(\d+)\s*\|{0,1}(.*?)\}#", $article->text, $catmatches))
