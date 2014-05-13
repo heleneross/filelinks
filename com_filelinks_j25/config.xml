@@ -31,7 +31,24 @@
                type="text"
                default="pdf,doc,xls"
                label="allowed types"
-               description="allowed filetype - separate entries with ,"
+               description="allowed filetype - separate entries with a comma"
+               size="50"/>
+        <field
+                name="showuser"
+                type="radio"
+                default="0"
+                label="Show Users"
+                description="Shows the usernames with the folder - useful if you have User Folder Type ID set in JoomlaCK editor">
+            <option
+                    value="0">No</option>
+            <option
+                    value="1">Yes</option>
+        </field>
+        <field name="excluded"
+               type="text"
+               default=""
+               label="Excluded folders"
+               description="folders to exclude from display - separate entries with a comma"
                size="50"/>
         <field name="&lt;b&gt;Linked articles&lt;/b&gt;"
                type="spacer"
