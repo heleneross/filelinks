@@ -110,6 +110,14 @@ class FilelinksHelper
 	}
 
 	// upload file
+	/**
+	 * @param    string    $filestore   basepath for files
+	 * @param    string    $folder      base64 encoded string
+	 * @param    array     $filearray   from form submission
+	 * @param    bool      $overwrite
+	 *
+	 * @return   array    at least two items, message and message type, followed by anything you want to return
+	 */
 	public static function upload($filestore, $folder, $filearray, $overwrite = false)
 	{
 		jimport('joomla.filesystem.file');
@@ -141,15 +149,25 @@ class FilelinksHelper
 
 		if (preg_match($doctypes, $filename))
 		{
-			//Set up the source and destination of the file
+			$folder = base64_decode($folder);
+
+
+            //Set up the source and destination of the file
 			$src = $filearray['tmp_name'];
 			if ($folder == $filestore)
 			{
 				$dest = JPATH_ROOT . DIRECTORY_SEPARATOR . $filestore . DIRECTORY_SEPARATOR . $filename;
+				$short_dest = str_replace(DIRECTORY_SEPARATOR,'/',$filestore . DIRECTORY_SEPARATOR . $filename);
 			}
 			else
 			{
 				$dest = JPATH_ROOT . DIRECTORY_SEPARATOR . $filestore . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR . $filename;
+				$short_dest = str_replace(DIRECTORY_SEPARATOR,'/',$filestore . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR . $filename);
+				//check folder exists
+				if(!JFolder::exists(JPATH_ROOT . DIRECTORY_SEPARATOR . $filestore . DIRECTORY_SEPARATOR . $folder))
+				{
+					return array('Folder: ' . $folder . ' does not exist', 'warning');
+				}
 			}
 
 			// don't overwrite
@@ -166,7 +184,7 @@ class FilelinksHelper
 			}
 
 			chmod($dest, 0644);
-			return array('File saved: ' . $filename, 'message');
+			return array('File saved: ' . $short_dest, 'message', $short_dest);
 		}
 		else
 		{
