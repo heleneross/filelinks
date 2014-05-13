@@ -24,17 +24,12 @@
     <administration>
         <menu img="components/com_filelinks/assets/images/s_com_filelinks.png">COM_FILELINKS</menu>
         <submenu>
-
             <menu link="option=com_filelinks&amp;view=files" view="files"
-                  img="components/com_filelinks/assets/images/s_files.png" alt="Filelinks/Files">
-                COM_FILELINKS_TITLE_FILES
-            </menu>
-
+                  img="components/com_filelinks/assets/images/s_com_filelinks.png" alt="Filelinks/Files">COM_FILELINKS_TITLE_FILES</menu>
             <menu link="option=com_categories&amp;extension=com_filelinks.files" view="categories"
-                  img="components/com_filelinks/assets/images/s_files.png" alt="Filelinks/Categories">
-                COM_FILELINKS_FILES_CATID
-            </menu>
-
+                  img="components/com_filelinks/assets/images/s_files.png" alt="Filelinks/Categories">COM_FILELINKS_FILES_CATID</menu>
+            <menu link="option=com_filelinks&amp;view=findfiles" view="findfiles"
+                  img="components/com_filelinks/assets/images/s_findfiles.png" alt="Filelinks/Findfiles">COM_FILELINKS_TITLE_FINDFILES</menu>
         </submenu>
         <files folder="administrator">
             <filename>access.xml</filename>
@@ -50,7 +45,7 @@
             <folder>tables</folder>
             <folder>views</folder>
         </files>
-        <languages folder="administrator">
+        <languages>
             <language tag="en-GB">language/en-GB.com_filelinks.ini</language>
             <language tag="en-GB">language/en-GB.com_filelinks.sys.ini</language>
         </languages>
