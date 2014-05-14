@@ -45,7 +45,7 @@ $saveOrder = $listOrder == 'a.ordering';
 				<label for="filelink-raw">Raw url?</label>
 				<input type="checkbox" name="filelink-raw" id="filelink-raw">
 			</td>
-			<td  colspan="3">
+			<td colspan="3">
 				<label for="filelink-blank">Open link in new window?</label>
 				<input type="checkbox" value="1" <?php echo $params->get('blank') ? 'checked="checked"' : ''; ?>
 				       name="filelink-blank" id="filelink-blank">
@@ -97,14 +97,10 @@ $saveOrder = $listOrder == 'a.ordering';
 
 
 	<div class='filter-select fltrt'>
-		<?php //Filter for the field catid
-		$selected_catid = $jinput->getInt('filter_catid', 0);
-		jimport('joomla.form.form');
-		JForm::addFormPath(JPATH_COMPONENT . '/models/forms');
-		$form = JForm::getInstance('com_filelinks.editfiledetails', 'editfiledetails');
-		echo $form->getLabel('filter_catid');
-		echo str_replace('<option value="0">Root</option>', '<option value="">' . JText::_('JOPTION_SELECT_CATEGORY') . '</option>', $form->getInput('filter_catid', null, $selected_catid));
-		?>
+		<select name="filter_catid" class="inputbox" onchange="this.form.submit()">
+			<option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?></option>
+			<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_filelinks.files'), 'value', 'text', $this->state->get('filter.catid')); ?>
+		</select>
 	</div>
 
 	<div class='filter-select fltrt'>
@@ -264,8 +260,7 @@ $saveOrder = $listOrder == 'a.ordering';
 			tag += '|' + title + '|raw';
 		}
 		else {
-			if (document.getElementById('filelink-title').value === "")
-			{
+			if (document.getElementById('filelink-title').value === "") {
 				tag += '|' + title;
 			}
 			else {
@@ -280,7 +275,7 @@ $saveOrder = $listOrder == 'a.ordering';
 			if (document.getElementById('filelink-hdescription').checked) {
 				tag += '|hdesc';
 			}
-			else{
+			else {
 				if (document.getElementById('filelink-description').checked) {
 					tag += <?php echo $params->get('description')?> ? '' : '|desc';
 				}
@@ -294,12 +289,10 @@ $saveOrder = $listOrder == 'a.ordering';
 			else {
 				tag += <?php echo $params->get('blank')?> ? '|same' : '';
 			}
-			if(document.getElementById('filelink-filesize').checked)
-			{
+			if (document.getElementById('filelink-filesize').checked) {
 				tag += '|size';
 			}
-			if (document.getElementById('filelink-customcss').value != "")
-			{
+			if (document.getElementById('filelink-customcss').value != "") {
 				tag += '|"' + document.getElementById('filelink-customcss').value + '"';
 			}
 		}

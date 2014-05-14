@@ -42,14 +42,10 @@ $saveOrder = $listOrder == 'a.ordering';
 
 
 	<div class='filter-select fltrt'>
-		<?php //Filter for the field catid
-		$selected_catid = JRequest::getVar('filter_catid');
-		jimport('joomla.form.form');
-		JForm::addFormPath(JPATH_COMPONENT . '/models/forms');
-		$form = JForm::getInstance('com_filelinks.editfiledetails', 'editfiledetails');
-		echo $form->getLabel('filter_catid');
-		echo str_replace('<option value="0">Root</option>', '<option value="">' . JText::_('JOPTION_SELECT_CATEGORY') . '</option>', $form->getInput('filter_catid', null, $selected_catid));
-		?>
+		<select name="filter_catid" class="inputbox" onchange="this.form.submit()">
+			<option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?></option>
+			<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_filelinks.files'), 'value', 'text', $this->state->get('filter.catid')); ?>
+		</select>
 	</div>
 
 	<div class='filter-select fltrt'>
