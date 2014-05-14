@@ -95,8 +95,8 @@ class FilelinksModelFindfiles extends JModelList
 	{
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
-		$query->select(array('url,state,id,title'));
-		$query->from('#__filelinks');
+		$query->select($db->quoteName(array('url','state','id','title')));
+		$query->from($db->quoteName('#__filelinks'));
 		return $query;
 	}
 

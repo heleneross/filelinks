@@ -20,7 +20,7 @@ class EditFileDetailsHelper
 		$text = $filelink ? 'filelink' : 'filelinkcat';
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
-		$query->select(array('id', 'title', 'state'));
+		$query->select($db->quoteName(array('id', 'title', 'state')));
 		$query->from('#__content');
 		$query->where("`introtext` LIKE '%{".$text."|" . (int) $lid . "|%' OR `fulltext` LIKE '%{".$text."|" . (int) $lid . "|%' OR `introtext` LIKE '%{".$text."|" . (int) $lid . "}%' OR `fulltext` LIKE '%{".$text."|" . (int) $lid . "}%'");
 		$db->setQuery($query);
