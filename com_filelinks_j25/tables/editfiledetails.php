@@ -37,7 +37,6 @@ class FilelinksTableeditfiledetails extends JTable
 	public function bind($array, $ignore = '')
 	{
 
-
 		$input = JFactory::getApplication()->input;
 		$task = $input->getString('task', '');
 		if (($task == 'save' || $task == 'apply') && (!JFactory::getUser()->authorise('core.edit.state', 'com_filelinks') && $array['state'] == 1))
@@ -76,6 +75,32 @@ class FilelinksTableeditfiledetails extends JTable
 		}
 
 		return parent::bind($array, $ignore);
+	}
+
+	/**
+	 * Overload the store method for the Filelinks table.
+	 *
+	 * @param	boolean	Toggle whether null values should be updated.
+	 * @return	boolean	True on success, false on failure.
+	 * @since	1.6
+	 */
+	public function store($updateNulls = false)
+	{
+		$user	= JFactory::getUser();
+			// New filelink. A filelink created_by field can be set by the user,
+			// so we don't touch this set.
+			if (empty($this->created_by)) {
+				$this->created_by = $user->get('id');
+			}
+
+		// Verify that the url is unique
+		$table = JTable::getInstance('editfiledetails', 'FilelinksTable');
+		if ($table->load(array('url'=>$this->url)) && ($table->id != $this->id || $this->id==0)) {
+			$this->setError(JText::_('COM_FILELINKS_ERROR_UNIQUE_URL'));
+			return false;
+		}
+		// Attempt to store the user data.
+		return parent::store($updateNulls);
 	}
 
 	/**

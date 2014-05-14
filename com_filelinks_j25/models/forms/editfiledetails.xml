@@ -61,9 +61,10 @@
             filter="int"
             maxlength="11" /> 
 
-       <field name="created_by" type="createdby" default="" 
+       <field name="created_by" type="user" default="" 
             label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_CREATED_BY"
-            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_CREATED_BY"  /> 
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_CREATED_BY"
+            size="30"  /> 
 
        <field name="created" type="timecreated" default="" 
             label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_CREATED"
