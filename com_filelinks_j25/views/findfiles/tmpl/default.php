@@ -79,11 +79,11 @@ foreach ($list as $item)
 	}
 	if ($item == $folders)
 	{
-		echo '<option value="' . $item . '" selected="selected">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . $userarray[$item] : '') . '</option>';
+		echo '<option value="' . $item . '" selected="selected">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . htmlspecialchars($userarray[$item]) : '') . '</option>';
 	}
 	else
 	{
-		echo '<option value="' . $item . '">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . $userarray[$item] : '') . '</option>';
+		echo '<option value="' . $item . '">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . htmlspecialchars($userarray[$item]) : '') . '</option>';
 	}
 }
 ?>
@@ -113,13 +113,13 @@ foreach ($list as $item)
 		}
 
 		echo '<label for="subfolders">Folder: </label><select name="subfolders" id="subfolders">';
-		echo '<option value="' . base64_encode($folders) . '">' . $folders . (isset($userarray[$folders]) && $showuser ? ' : ' . $userarray[$folders] : '') . '</option>';
+		echo '<option value="' . base64_encode($folders) . '">' . $folders . (isset($userarray[$folders]) && $showuser ? ' : ' . htmlspecialchars($userarray[$folders]) : '') . '</option>';
 		foreach ($subfolders as $subfolder)
 		{
 			$displayname = substr(str_replace($ds, '/', $subfolder['relname']), strlen($filestore) + 2);
 			if (!in_array($displayname, $excluded_folders))
 			{
-				echo '<option value="' . base64_encode($displayname) . '">' . $displayname . (isset($userarray[$displayname]) && $showuser ? ' : ' . $userarray[$displayname] : '') . '</option>';
+				echo '<option value="' . base64_encode($displayname) . '">' . $displayname . (isset($userarray[$displayname]) && $showuser ? ' : ' . htmlspecialchars($userarray[$displayname]) : '') . '</option>';
 			}
 		}
 		echo '</select>';
