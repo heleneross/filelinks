@@ -79,7 +79,7 @@ foreach ($list as $item)
 	}
 	if ($item == $folders)
 	{
-		echo '<option value="' . $item . '" selected>' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . $userarray[$item] : '') . '</option>';
+		echo '<option value="' . $item . '" selected="selected">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . $userarray[$item] : '') . '</option>';
 	}
 	else
 	{
@@ -99,9 +99,9 @@ foreach ($list as $item)
 	      action="<?php echo JRoute::_('index.php?option=com_filelinks&view=findfiles') ?>" method="post"
 	      name="fileupload" id="fileupload">
 		<label for="overwrite"> Overwrite:</label>
-		<input type="checkbox" id="overwrite" name="overwrite" value="true">
+		<input type="checkbox" id="overwrite" name="overwrite" value="true" />
 		<label for="chosen">Upload file: </label>
-		<input class="input_box" id="chosen" name="chosen" type="file" size="80">
+		<input class="input_box" id="chosen" name="chosen" type="file" size="80" />
 		<?php
 		if ($folders == $filestore)
 		{
@@ -126,7 +126,7 @@ foreach ($list as $item)
 		?>
 		<input class="button" type="button" value="Submit" onclick="Joomla.submitbutton_u()"/>
 		<input type="hidden" name="task" value="uploadfile"/>
-		<input type="hidden" name="folder" value="<?php echo $folders ?>">
+		<input type="hidden" name="folder" value="<?php echo $folders ?>" />
 		<?php echo JHtml::_('form.token'); ?>
 	</form>
 <?php endif; ?>
@@ -169,7 +169,7 @@ else
 		$urlarray[$url->url] = array($url->state, $url->id, $url->title);
 	}
 	?>
-	<table class="adminlist">
+	<table class="adminlist" style="clear:both">
 	<thead>
 	<tr>
 		<th class="thview">
@@ -186,7 +186,6 @@ else
 			<?php echo JText::_('COM_FILELINKS_TH_TITLE'); ?></th>
 		<th class="thfilesize">
 			<?php echo JText::_('COM_FILELINKS_TH_FILESIZE'); ?></th>
-		</th>
 	</tr>
 	</thead>
 	<tbody>
