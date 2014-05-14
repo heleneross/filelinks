@@ -3,12 +3,12 @@
 #centercontent a[target="_blank"].filelink:after {content:none}*/
 a.filelink > img {padding-right:5px;}
 
-i.info {margin:0 20px;}
-.hideable i.info {cursor: pointer;}
-.hideable.hidden i.info:after {content:"Show info";}
-.hideable i.info:after {content:"Hide info";}
+.hideable a.info {}
+.hideable.hidden a.info:after {content:"Info";color:#776F6F}
+.hideable a.info:after {content:"Hide Info";color:#776F6F}
+a.info {margin:0 10px;font-style:italic}
 .hideable.hidden .filelink-description {display:none;}
-.hideable .filelink-description {display:block;margin-bottom:10px;}
+.filelink-description {display:block;margin-bottom:10px;}
 
 
 .filelink-size:after {content: ')'}
