@@ -198,7 +198,7 @@ class plgContentFilelinks extends JPlugin
 					if ($hiddendescription)
 					{
 						$addjs = true;
-						$buffer .= '<a id="link'.$filelinkid.'" name="link'.$filelinkid.'"></a><span class="hideable"><a href="#link'.$filelinkid.'" class="info"></a><span class="filelink-description" >' . htmlspecialchars($row['description']) . '</span></span>';
+						$buffer .= '<span class="hideable"><a href="#!" class="info" title="Info"></a><span class="filelink-description" >' . htmlspecialchars($row['description']) . '</span></span>';
 					}
 					else{
 					$buffer .= '<span class="filelink-description">' . htmlspecialchars($row['description']) . '</span>';

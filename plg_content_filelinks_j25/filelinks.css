@@ -4,9 +4,13 @@
 a.filelink > img {padding-right:5px;}
 
 .hideable a.info {}
-.hideable.hidden a.info:after {content:"Info";color:#776F6F}
-.hideable a.info:after {content:"Hide Info";color:#776F6F}
-a.info {margin:0 10px;font-style:italic}
+/*.hideable.hidden a.info:before {content:"Info";color:#776F6F}
+.hideable a.info:before {content:"Hide Info";color:#776F6F}*/
+.hideable.hidden a.info:before{content:url(images/bullet_arrow_down.png);}
+.hideable a.info:before{content:url(images/bullet_arrow_right.png);}
+.hideable.hidden a.info:after {content: attr(title);}
+.hideable a.info:after {content: "Hide " attr(title);} 
+.hideable a.info {margin:0 10px;font-style:italic;color:#757575}
 .hideable.hidden .filelink-description {display:none;}
 .filelink-description {display:block;margin-bottom:10px;}
 
