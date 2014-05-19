@@ -155,8 +155,8 @@ class plgSearchFilelinks extends JPlugin
 			$query = $db->getQuery(true);
 			//sqlsrv changes
 
-			$query->select('a.title AS title, a.description AS text, a.created AS created, a.url, a.access, '
-				. $query->concatenate(array($db->Quote($section), "c.title"), " / ") . ' AS section, \'1\' AS browsernav');
+			$query->select('a.title AS title, a.description AS text, a.created AS created, a.url, a.access, c.params, '
+				. $query->concatenate(array($db->Quote($section), "c.title"), "/") . ' AS section, \'1\' AS browsernav');
 			$query->from('#__filelinks AS a');
 			$query->innerJoin('#__categories AS c ON c.id = a.catid');
 			$query->where('(' . $where . ')' . ' AND a.state in (' . implode(',', $state) . ') AND  c.published=1 AND  c.access IN (' . $groups . ') AND a.access IN (' . $groups . ')');
@@ -178,21 +178,21 @@ class plgSearchFilelinks extends JPlugin
 			{
 				foreach ($rows as $key => $filelink)
 				{
-					$fileext = strtolower(JFile::getExt($filelink->url));
+					$params = json_decode($filelink->params, true);
+          $fileext = strtolower(JFile::getExt($filelink->url));
 					if (preg_match($doctypes, $filelink->url))
 					{
 						if (searchHelper::checkNoHTML($filelink, $searchText, array('url', 'text', 'title')))
 						{
 							$filelink->icon = JURI::root() . 'media/com_filelinks/images/' . $fileext . '.png';
-							// outputs the exernal url rather than the internal one
-							$filelink->href = JURI::root() . $filelink->url;
+							$filelink->href = $filelink->url;
+              $filelink->parenturl = isset($params['caturl']) ? $params['caturl'] : '';
 							$return[] = $filelink;
 						}
 					}
 				}
 			}
 		}
-
 		return $return;
 	}
 }
