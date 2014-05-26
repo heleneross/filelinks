@@ -3,13 +3,19 @@ defined('_JEXEC') or die;
 $result = $this->row;
 
 // fixes for output
-$result->display_href = ltrim(str_ireplace(JURI::root(),'',$result->href),'\/\\. ');
-$result->section = str_ireplace('root','BFGnet',$result->section);
-include ('excluded_images.php');
-
-if (isset($result->icon) && in_array(trim($result->icon,'/'),$excluded_images))
+$result->href = ltrim(str_ireplace(JURI::root(), '', $result->href), '\/\\. ');
+$result->fullhref = ltrim(str_ireplace(JURI::root(), '', $result->fullhref), '\/\\. ');
+$result->fullhref = (preg_match('#^(http://|https://)#', strtolower($result->fullhref)) ? $result->fullhref : JURI::root() . $result->fullhref);
+$result->section = str_ireplace('root', 'BFGnet', $result->section);
+$hive = false;
+// specific to Hive results
+if (strpos($result->section, 'Hive Europe') !== false)
 {
-	$result->icon = '';
+	$result->section = 'HIVE-Europe';
+	$hive = true;
+	$result->href = strstr($result->href, 'hive-europe');
+	$result->fullhref = strstr($result->fullhref, 'hive-europe');
+	$result->browsernav = 0;
 }
 
 // build title
@@ -19,12 +25,14 @@ $footer = '';
 // add link
 if ($result->href) :
 	$tag = '<a href="%s">%s</a>';
+	$title_tag = $tag;
 	if (1 == $result->browsernav) :
 		$tag = '<a href="%s" target="_blank">%s</a>';
+		$title_tag = '<a href="%s" target="_blank" class="nolink">%s</a>';
 	endif;
-	$title = sprintf($tag, $result->href, $title);
+	$title = sprintf($title_tag, $result->fullhref, $title);
 	if ($this->params->get('show_links_at_bottom')) :
-		$footer = sprintf($tag, $result->href, $result->display_href);
+		$footer = sprintf($tag, $result->fullhref, $result->href);
 	endif;
 endif;
 // add headings
@@ -36,21 +44,23 @@ $text = preg_replace($this->highlight, '<span class="highlight">\0</span>', $res
 	<div class="result-num"><span><?php echo $this->num; ?></span></div>
 	<div class="result-obj">
 		<div class="result-top">
-
 			<?php if (isset($result->relevance) && $this->ordering == 'relevance' && $this->params->get('rel_enable_result')) : ?>
 				<div class="search_relevance_score">
-					<div class="search_relevance_score_value" style="width:<?php echo $result->scalePct; ?>%"> </div>
+					<div class="search_relevance_score_value" style="width:<?php echo $result->scalePct; ?>%"></div>
 				</div>
 			<?php endif; ?>
 			<?php echo $title; ?>
+
 			<div class="search_clear"><!--  --></div>
 			<?php if ($result->section || $this->params->get('show_date')) : ?>
 				<div class="articleinfo">
 
 					<?php if ($result->section) : ?>
-						<div class="category f_lft"><?php echo $this->escape($result->section); ?></div>
-					<?php endif; ?>
+						<div class="category f_lft">
 
+							<?php echo $this->escape($result->section); ?>
+						</div>
+					<?php endif; ?>
 					<?php if ($this->params->get('show_date')) : ?>
 						<div class="createdate f_rght"><?php echo $result->created; ?></div>
 					<?php endif; ?>
@@ -61,16 +71,26 @@ $text = preg_replace($this->highlight, '<span class="highlight">\0</span>', $res
 		</div>
 		<div class="result-bottom">
 			<p class="result_text">
-				<?php if (isset($result->icon) && !empty($result->icon) ) : ?>
+				<?php if (@$result->icon) : ?>
 					<span class="result-icon">
-					<img src="<?php echo htmlspecialchars($result->icon); ?>" alt="<?php echo htmlspecialchars(strip_tags($result->title)); ?>" />
+					<img class="pad" src="<?php echo htmlspecialchars($result->icon); ?>"
+					     alt="<?php echo htmlspecialchars(strip_tags($result->title)); ?>"/>
 				</span>
 				<?php endif; ?>
 				<?php echo $text; ?>
 			</p>
 			<span class="search_clear"></span>
+
 			<?php if (strlen($footer)) : ?>
-				<p class="result_link"><?php echo $footer; ?></p>
+				<p class="result_link">
+					<?php if (!$hive) : ?>
+						<span class="filelinks-icon">
+					<img src="<?php echo JURI::root() . 'media/com_filelinks/images/html.png'; ?>"
+					     alt="<?php echo htmlspecialchars(strip_tags($result->title)); ?>"/>
+				</span>
+					<?php endif; ?>
+					<?php echo $footer; ?></p>
+
 				<span class="search_clear"></span>
 			<?php endif; ?>
 		</div>
@@ -78,7 +98,7 @@ $text = preg_replace($this->highlight, '<span class="highlight">\0</span>', $res
 	<span class="search_clear"></span>
 	<?php
 	if ((defined('DEBUG') && DEBUG) || (defined('JDEBUG') && JDEBUG)) :
-		echo '<h5>'.JText::sprintf('COM_SEARCHADVANCED_RELEVANCE_DEBUG', $result->relevance).'</h5>';
+		echo '<h5>' . JText::sprintf('COM_SEARCHADVANCED_RELEVANCE_DEBUG', $result->relevance) . '</h5>';
 		if (property_exists($result, 'relevanceLog') && !empty($result->relevanceLog)) :
 			echo '<ul>';
 			foreach ($result->relevanceLog as $entry) :
