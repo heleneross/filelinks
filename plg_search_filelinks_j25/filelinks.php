@@ -179,14 +179,18 @@ class plgSearchFilelinks extends JPlugin
 				foreach ($rows as $key => $filelink)
 				{
 					$params = json_decode($filelink->params, true);
-          $fileext = strtolower(JFile::getExt($filelink->url));
+					$fileext = strtolower(JFile::getExt($filelink->url));
 					if (preg_match($doctypes, $filelink->url))
 					{
 						if (searchHelper::checkNoHTML($filelink, $searchText, array('url', 'text', 'title')))
 						{
-							$filelink->icon = JURI::root() . 'media/com_filelinks/images/' . $fileext . '.png';
+							$filelink->fileicon = JURI::root() . 'media/com_filelinks/images/' . $fileext . '.png';
 							$filelink->href = $filelink->url;
-              $filelink->parenturl = isset($params['caturl']) ? $params['caturl'] : '';
+							// link to parent content set in filelink category
+							$filelink->parenturl = isset($params['caturl']) ? $params['caturl'] : '';
+							// the icon to use for the link
+							$filelink->icon = isset($params['image']) ? $params['image'] : '';
+							$filelink->plugtype = 'filelink';
 							$return[] = $filelink;
 						}
 					}
