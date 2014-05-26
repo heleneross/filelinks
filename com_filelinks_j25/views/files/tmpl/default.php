@@ -44,7 +44,7 @@ $saveOrder = $listOrder == 'a.ordering';
 	<div class='filter-select fltrt'>
 		<select name="filter_catid" class="inputbox" onchange="this.form.submit()">
 			<option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?></option>
-			<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_filelinks.files'), 'value', 'text', $this->state->get('filter.catid')); ?>
+			<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_filelinks'), 'value', 'text', $this->state->get('filter.catid')); ?>
 		</select>
 	</div>
 

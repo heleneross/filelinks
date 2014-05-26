@@ -66,7 +66,7 @@ class com_FilelinksInstallerScript
 			require_once $basePath . '/models/category.php';
 			$config = array('table_path' => $basePath . '/tables');
 			$catmodel = new CategoriesModelCategory($config);
-			$catData = array('parent_id' => 1, 'level' => 1, 'path' => 'uncategorised', 'extension' => 'com_filelinks.files', 'title' => 'Uncategorised', 'alias' => 'uncategorised', 'published' => 1, 'language' => '*');
+			$catData = array('parent_id' => 1, 'level' => 1, 'path' => 'uncategorised', 'extension' => 'com_filelinks', 'title' => 'Uncategorised', 'alias' => 'uncategorised', 'published' => 1, 'language' => '*');
 			$status = $catmodel->save($catData);
 
 			if (!$status)

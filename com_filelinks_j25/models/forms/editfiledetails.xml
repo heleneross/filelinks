@@ -13,14 +13,14 @@
                 
                 
                 
-            extension="com_filelinks.files"
+            extension="com_filelinks"
             menu_published="0"
             filter="raw" /> 
 
  
 		<field name="filter_catid" type="category"
             label="COM_FILELINKS_FORM_LBL_EDITFILEDETAILS_CATID"
-            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_CATID"  extension="com_filelinks.files" show_root="1" onchange="this.form.submit();" /> 
+            description="COM_FILELINKS_FORM_DESC_EDITFILEDETAILS_CATID"  extension="com_filelinks" show_root="1" onchange="this.form.submit();" /> 
 
        <field name="title" type="text"
                 

@@ -27,8 +27,8 @@ class FilelinksHelper
 		);
 		JSubMenuHelper::addEntry(
 			'Categories (Files)',
-			"index.php?option=com_categories&extension=com_filelinks.files",
-			$vName == 'categories.files'
+			"index.php?option=com_categories&extension=com_filelinks",
+			$vName == 'categories'
 		);
 		//new empty view findfiles
 		JSubMenuHelper::addEntry(
@@ -42,7 +42,7 @@ class FilelinksHelper
 			$vName == 'help'
 		);
 
-		if ($vName == 'categories.files.catid')
+		if ($vName == 'categories.catid')
 		{
 			JToolBarHelper::title('FileLinks: Categories (Files)');
 		}

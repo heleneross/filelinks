@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<form>
-    <fields name="params">
-        <fieldset name="URL" label="COM_FILELINKS_FILES_CATID_CATURL">
-            <field name="caturl" type="url" default="" size="60" 
-            label="COM_FILELINKS_FILES_CATID_CATURL" description="COM_FILELINKS_FILES_CATID_CATURL_DESC" />
-        </fieldset>
-    </fields>
-</form>
