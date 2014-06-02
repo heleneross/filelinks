@@ -60,8 +60,10 @@ if ($task == 'uploadfile')
 }
 
 // is the filelinksfolder cookie set
-$cookie = $input->cookie->get('filelinksfolder', '', 'cmd');
-$folders = ($cookie) ? $cookie : $input->getCmd('folders', '');
+$cookie = $input->cookie->get('filelinksfolder', '', 'BASE64');
+// make sure we only have folders directly under $filestore root
+$folders_temp = explode('/',($cookie) ? base64_decode($cookie) : base64_decode($input->get('folders', '', 'BASE64')));
+$folders = array_shift($folders_temp);
 
 $list = JFolder::folders(JPATH_ROOT . '/' . $filestore, '.', false, false);
 $list = array_diff($list, $excluded_folders);
@@ -79,11 +81,11 @@ foreach ($list as $item)
 	}
 	if ($item == $folders)
 	{
-		echo '<option value="' . $item . '" selected="selected">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . htmlspecialchars($userarray[$item]) : '') . '</option>';
+		echo '<option value="' . base64_encode($item) . '" selected="selected">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . htmlspecialchars($userarray[$item]) : '') . '</option>';
 	}
 	else
 	{
-		echo '<option value="' . $item . '">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . htmlspecialchars($userarray[$item]) : '') . '</option>';
+		echo '<option value="' . base64_encode($item) . '">' . $item . (isset($userarray[$item]) && $showuser ? ' : ' . htmlspecialchars($userarray[$item]) : '') . '</option>';
 	}
 }
 ?>

@@ -111,15 +111,28 @@ class FilelinksHelper
 
 	// upload file
 	/**
-	 * @param    string    $filestore   basepath for files
-	 * @param    string    $folder      base64 encoded string
-	 * @param    array     $filearray   from form submission
-	 * @param    bool      $overwrite
+	 * @param    string $filestore basepath for files
+	 * @param    string $folder    string
+	 * @param    array  $filearray from form submission
+	 * @param    bool   $overwrite
 	 *
-	 * @return   array    at least two items, message and message type, followed by anything you want to return
+	 * @return   array    at least two items, message and message type, followed by anything else you want to return
 	 */
-	public static function upload($filestore, $folder, $filearray, $overwrite = false)
+	public static function upload($filestore, $folder, $filearray, $overwrite = false, $base64 = true)
 	{
+		// Note: for compatibility with the older version which expects $folder to be base64 encoded, have set a flag
+
+		// check that $folder is not null (from jinput->get)
+		if (empty($folder))
+		{
+			return array('Invalid folder', 'error');
+		}
+
+		if ($base64)
+		{
+			$folder = base64_decode($folder);
+		}
+
 		jimport('joomla.filesystem.file');
 		$file_error = array(
 			0 => 'There is no error, the file uploaded with success',
@@ -149,22 +162,20 @@ class FilelinksHelper
 
 		if (preg_match($doctypes, $filename))
 		{
-			$folder = base64_decode($folder);
-
-
-            //Set up the source and destination of the file
+			//Set up the source and destination of the file
 			$src = $filearray['tmp_name'];
 			if ($folder == $filestore)
 			{
+				// presuming this folder exists
 				$dest = JPATH_ROOT . DIRECTORY_SEPARATOR . $filestore . DIRECTORY_SEPARATOR . $filename;
-				$short_dest = str_replace(DIRECTORY_SEPARATOR,'/',$filestore . DIRECTORY_SEPARATOR . $filename);
+				$short_dest = str_replace(DIRECTORY_SEPARATOR, '/', $filestore . DIRECTORY_SEPARATOR . $filename);
 			}
 			else
 			{
 				$dest = JPATH_ROOT . DIRECTORY_SEPARATOR . $filestore . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR . $filename;
-				$short_dest = str_replace(DIRECTORY_SEPARATOR,'/',$filestore . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR . $filename);
+				$short_dest = str_replace(DIRECTORY_SEPARATOR, '/', $filestore . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR . $filename);
 				//check folder exists
-				if(!JFolder::exists(JPATH_ROOT . DIRECTORY_SEPARATOR . $filestore . DIRECTORY_SEPARATOR . $folder))
+				if (!JFolder::exists(JPATH_ROOT . DIRECTORY_SEPARATOR . $filestore . DIRECTORY_SEPARATOR . $folder))
 				{
 					return array('Folder: ' . $folder . ' does not exist', 'warning');
 				}
